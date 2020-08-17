@@ -9,6 +9,8 @@
     </select><br /> <input name="democheckbox" type="checkbox" value="1" /> Checkbox<br /> 
       */
 
+//<! github test comment -->      
+
 //<!-- Slider test -->
 
 <h4>Slider Test</h4>
