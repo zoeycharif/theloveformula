@@ -9,11 +9,17 @@ future additional data will be collected via our own web page.
 ## Project Members
 
 Zoey Charif - Subject Matter Expert and Project Manager
+
 Erin Averill - Front End Design
+
 Miguel Sheker - Machine Learning
+
 Brendan Barrow - Machine Learning
+
 Addy O. - Front End Design
+
 Stephen Yang - Database
+
 
 
 
