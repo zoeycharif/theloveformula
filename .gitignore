@@ -1,2 +1,4 @@
 .DS_*
 .ipynb_*
+__pycache__
+config.py
