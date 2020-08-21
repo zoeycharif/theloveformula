@@ -1,8 +1,8 @@
 // importing express into our routes file
-const express = require('express');
+var express = require('express');
 
 // then grabbing the router from it
-const router = express.Router();
+var router = express.Router();
 
 router.get('/', (req, res) => {
 	res.send('It works!');
