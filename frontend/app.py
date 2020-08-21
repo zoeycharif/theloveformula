@@ -2,9 +2,9 @@
 import sqlalchemy
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
-from sqlalchemy import create_engine, func
+from sqlalchemy import create_engine, func, inspect
 
-from flask import Flask, render_template, jsonify, redirect, request, url_for, session
+from flask import Flask, render_template, jsonify, redirect, request, url_for, session, flash
 from datetime import timedelta
 
 #################################################
@@ -19,27 +19,44 @@ app.secret_key = "hihi"
 #################################################
 
 # from flask_sqlalchemy import SQLAlchemy
-# URI = "postgres://rhjtenpwhdlbjl:4d3153a71d04ee752de8aab6fb6ac3baaff5fe615aa7a6223845aab661e0c6af@ec2-34-237-89-96.compute-1.amazonaws.com:5432/d1l8p7t7cs19l8"
+URI = "postgres://rhjtenpwhdlbjl:4d3153a71d04ee752de8aab6fb6ac3baaff5fe615aa7a6223845aab661e0c6af@ec2-34-237-89-96.compute-1.amazonaws.com:5432/d1l8p7t7cs19l8"
 
-# engine = create_engine(URI)
+engine = create_engine(URI)
 
-# session = Session(engine)
+session = Session(engine)
+inspector = inspect(engine)
+columns = inspector.get_columns("profiles")
+for c in columns:
+    print(c["name"])
+Base = automap_base()
+Base.prepare(engine, reflect = True)
+print(Base.classes.keys())
+Profiles = Base.classes.profiles
 
 
 # create route that renders index.html template
 @app.route("/")
 def home():
+    return render_template("form2.html")
 
-    return render_template("index.html")
 
-@app.route("/form")
+    # return render_template("index.html")
+    
+@app.route("/form", methods=["GET", "POST"])
 def form():
+    # if request.method == "POST":
 
     return render_template("form.html")
 
-# @app.route("/signup")
-# def signup():
-#     return render_template("signup.html")
+@app.route("/formsubmit", methods= ["POST"])
+def formsubmit():
+    session = Session(engine)
+    results = session.query(Profiles.qp_communication).all()
+    print(results)
+    selfvalue1 = request.form["selfvalue1"]
+    print (selfvalue1)
+    session.close()
+    return render_template("form2.html")
 
 # Query the database and send the jsonified results
 @app.route("/login", methods=["GET", "POST"])
@@ -65,9 +82,9 @@ def user():
 @app.route("/logout")
 def logout():
     session.pop("user", None)
+    flash("you have been logged out ")
     return redirect(url_for("login"))
         
-
 
 @app.route("/admin")
 def admin():
