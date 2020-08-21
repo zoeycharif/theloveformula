@@ -9,418 +9,98 @@
     </select><br /> <input name="democheckbox" type="checkbox" value="1" /> Checkbox<br /> 
       */
 
-//<! github test comment -->      
+//<! github test comment -->
 
-//<!-- Slider test -->
-
-<h4>Slider Test</h4>
-
- //    <!-- How old are you -->
-<h4>How old are you?</h4>
-<label>Age</label><br /> <input age="age" type="text" value="" /> <br>
-
-//</br><!-- What is your gender -->
-<h4>What is your gender?</h4>
-<input checked="checked" name="sex" type="radio" value="male" /> Male <br /> 
-<input name="sex" type="radio" value="female" /> Female <br />
-
-//<!-- What is your sexual orientation -->
-<h4>What is your sexual orientation?</h4>
-
-<input checked="checked" name="sexsual orientation" type="radio" value="heterosexual" /> Heterosexual <br /> 
-<input name="sexual orientation" type="radio" value="homosexual" /> Homosexual <br />
-<input name="sexual orientation" type="radio" value="bisexual" /> Bisexual <br />
-<input name="sexual orientation" type="radio" value="pansexual" /> Pansexual <br />
-<input name="sexual orientation" type="radio" value="asexual" /> Asexual <br />
-
-//<!-- Please rate yourself on each of these values  -->
-<h4>Please rate yourself on each of the following values</h4>
-
-<label>Education/Knowledge</label>
-
-<select>
-<option selected="selected" value="10">10</option>
-<option value="9">9</option>
-<option value="8">8</option>
-<option value="7">7</option>
-<option value="6">6</option>
-<option value="5">5</option>
-<option value="4">4</option>
-<option value="3">3</option>
-<option value="2">2</option>
-<option value="1">1</option>
-  </select><br />
-
-<label>Street Smarts</label>
-<select>
-    <option selected="selected" value="10">10</option>
-    <option value="9">9</option>
-    <option value="8">8</option>
-    <option value="7">7</option>
-    <option value="6">6</option>
-    <option value="5">5</option>
-    <option value="4">4</option>
-    <option value="3">3</option>
-    <option value="2">2</option>
-    <option value="1">1</option>
-      </select><br />
-
-<label>Financial Choices</label>
-      <select>
-          <option selected="selected" value="10">10</option>
-          <option value="9">9</option>
-          <option value="8">8</option>
-          <option value="7">7</option>
-          <option value="6">6</option>
-          <option value="5">5</option>
-          <option value="4">4</option>
-          <option value="3">3</option>
-          <option value="2">2</option>
-          <option value="1">1</option>
-            </select><br />
+var questionContainer = document.getElementbyID('question');
+// you'll probably need to create a container for each type of question (MC, checkbox, sliders)
+var resultsContainer = document.getElementbyID('results');
+var submitButton = document.getElementbyID('submit');
 
 
-<label>Confidence/Self-Esteem</label>
-            <select>
-                <option selected="selected" value="10">10</option>
-                <option value="9">9</option>
-                <option value="8">8</option>
-                <option value="7">7</option>
-                <option value="6">6</option>
-                <option value="5">5</option>
-                <option value="4">4</option>
-                <option value="3">3</option>
-                <option value="2">2</option>
-                <option value="1">1</option>
-                  </select><br />
-<label>Religious Spiritual Values</label>
-<select>
-                  <option selected="selected" value="10">10</option>
-                  <option value="9">9</option>
-                  <option value="8">8</option>
-                  <option value="7">7</option>
-                  <option value="6">6</option>
-                  <option value="5">5</option>
-                  <option value="4">4</option>
-                  <option value="3">3</option>
-                  <option value="2">2</option>
-                  <option value="1">1</option>
-                    </select><br />
-                    
-<label>Materialism</label>
-<select>
-<option selected="selected" value="10">10</option>
-<option value="9">9</option>
-<option value="8">8</option>
- <option value="7">7</option>
-<option value="6">6</option>
-<option value="5">5</option>
-<option value="4">4</option>
-<option value="3">3</option>
-<option value="2">2</option>
- <option value="1">1</option>
-</select><br />
 
-<label>Image (Fashion sense/Body Modifications)</label>
-<select>
-<option selected="selected" value="10">10</option>
-<option value="9">9</option>
-<option value="8">8</option>
- <option value="7">7</option>
-<option value="6">6</option>
-<option value="5">5</option>
-<option value="4">4</option>
-<option value="3">3</option>
-<option value="2">2</option>
- <option value="1">1</option>
-</select><br />
+// objects to represent indiv. questions + array to hold all the questions in a form
+// allocate each chunk of questions to their respective form .js file (form1,form2,form3)
+// aka remove all these myQuestions objects from the main server page
+const myQuestions = [
+{
+  question: "1. How old are you?",
+  answers: {
+    a: "Under 18",
+    b: "18-24",
+    c: "25-34",
+    d: "35-44",
+    e: "45-54",
+    f: "55-64",
+    g: "65+"
+  },
+},
+{
+  question: "2. What is your gender?",
+  answers: {
+    a: "Female"
+    b: "Male"
+    c: "Transgender"
+    d: "Prefer not to say"
+  },
+},
+{
+  question: "3. What is your sexual orientation?"
+  answers: {
+    a: "Heterosexual",
+    b: "Homosexual",
+    c: "Bisexual",
+    d: "Pansexual",
+    e: "Asexual"
+  },
+},
 
-<label>Occupation</label>
-<select>
-<option selected="selected" value="10">10</option>
-<option value="9">9</option>
-<option value="8">8</option>
- <option value="7">7</option>
-<option value="6">6</option>
-<option value="5">5</option>
-<option value="4">4</option>
-<option value="3">3</option>
-<option value="2">2</option>
- <option value="1">1</option>
-</select><br />
 
-<label>Work Ethic</label>
-<select>
-<option selected="selected" value="10">10</option>
-<option value="9">9</option>
-<option value="8">8</option>
- <option value="7">7</option>
-<option value="6">6</option>
-<option value="5">5</option>
-<option value="4">4</option>
-<option value="3">3</option>
-<option value="2">2</option>
- <option value="1">1</option>
-</select><br />
+]
 
-<label>Household Care, Maintenance and Cleanliness</label>
-<select>
-<option selected="selected" value="10">10</option>
-<option value="9">9</option>
-<option value="8">8</option>
- <option value="7">7</option>
-<option value="6">6</option>
-<option value="5">5</option>
-<option value="4">4</option>
-<option value="3">3</option>
-<option value="2">2</option>
- <option value="1">1</option>
-</select><br />
 
-<label>Communication Style/Manners</label>
-<select>
-<option selected="selected" value="10">10</option>
-<option value="9">9</option>
-<option value="8">8</option>
- <option value="7">7</option>
-<option value="6">6</option>
-<option value="5">5</option>
-<option value="4">4</option>
-<option value="3">3</option>
-<option value="2">2</option>
- <option value="1">1</option>
-</select><br />
+function buildForm(){
+  // variable to store the HTML output
+  const output = [];
 
-<label>Artsy/Creative/Musical</label>
-<select>
-<option selected="selected" value="10">10</option>
-<option value="9">9</option>
-<option value="8">8</option>
- <option value="7">7</option>
-<option value="6">6</option>
-<option value="5">5</option>
-<option value="4">4</option>
-<option value="3">3</option>
-<option value="2">2</option>
- <option value="1">1</option>
-</select><br />
+  // for each question...
+  myQuestions.forEach(
+    (currentQuestion, questionNumber) => {
 
-<label>Charitable/Philanthropic</label>
-<select>
-<option selected="selected" value="10">10</option>
-<option value="9">9</option>
-<option value="8">8</option>
- <option value="7">7</option>
-<option value="6">6</option>
-<option value="5">5</option>
-<option value="4">4</option>
-<option value="3">3</option>
-<option value="2">2</option>
- <option value="1">1</option>
-</select><br />
+      // variable to store the list of possible answers
+      const answers = [];
 
-<label>Pursuing a Greater Purpose</label>
-<select>
-<option selected="selected" value="10">10</option>
-<option value="9">9</option>
-<option value="8">8</option>
- <option value="7">7</option>
-<option value="6">6</option>
-<option value="5">5</option>
-<option value="4">4</option>
-<option value="3">3</option>
-<option value="2">2</option>
- <option value="1">1</option>
-</select><br />
+      // and for each available answer....
+      for(letter in currentQuestion.answers){
 
-<label>Social Status/Sociability</label>
-<select>
-<option selected="selected" value="10">10</option>
-<option value="9">9</option>
-<option value="8">8</option>
- <option value="7">7</option>
-<option value="6">6</option>
-<option value="5">5</option>
-<option value="4">4</option>
-<option value="3">3</option>
-<option value="2">2</option>
- <option value="1">1</option>
-</select><br />
+        //...add an HTML radio button
+        answers.push(
+          `<label>
+            <input type="radio" name="question${questionNumber}" value="${letter}">
+            ${letter} :
+            ${currentQuestion.answers[letter]}
+          </label>`
+          );
+      }
 
-<label>Cultured/Well-traveled/"Woke"</label>
-<select>
-<option selected="selected" value="10">10</option>
-<option value="9">9</option>
-<option value="8">8</option>
- <option value="7">7</option>
-<option value="6">6</option>
-<option value="5">5</option>
-<option value="4">4</option>
-<option value="3">3</option>
-<option value="2">2</option>
- <option value="1">1</option>
-</select><br />
+      // add this question and its answers to the output
+      output.push(
+        `<div class="question"> ${currentQuestion.question} </div>
+        <div class="answers"> ${answers.join('')} </div>`
+      );
+    }
+  );
 
-<label>Self-Care/Personal Hygiene/Cleanliness</label>
-<select>
-<option selected="selected" value="10">10</option>
-<option value="9">9</option>
-<option value="8">8</option>
- <option value="7">7</option>
-<option value="6">6</option>
-<option value="5">5</option>
-<option value="4">4</option>
-<option value="3">3</option>
-<option value="2">2</option>
- <option value="1">1</option>
-</select><br />
+  // finally combine our output list into one string of HTML and put it on the page
+  quizContainer.innerHTML = output.join('');
+}
 
-<label>Honesty/Dependable/Reliable</label>
-<select>
-<option selected="selected" value="10">10</option>
-<option value="9">9</option>
-<option value="8">8</option>
- <option value="7">7</option>
-<option value="6">6</option>
-<option value="5">5</option>
-<option value="4">4</option>
-<option value="3">3</option>
-<option value="2">2</option>
- <option value="1">1</option>
-</select><br />
+function showResults(){}
 
-<label>Family Values</label>
-<select>
-<option selected="selected" value="10">10</option>
-<option value="9">9</option>
-<option value="8">8</option>
- <option value="7">7</option>
-<option value="6">6</option>
-<option value="5">5</option>
-<option value="4">4</option>
-<option value="3">3</option>
-<option value="2">2</option>
- <option value="1">1</option>
-</select><br />
-//<!-- Please rate your top 5 values -->
-<h4>Please tell us your top 5 values</h4>
+// display form right away
+buildForm();
 
-<label>Value 1</label>
-<select>
-<option selected="selected" value="1">Education/Knowledge</option>
-<option value="2">Street Smarts</option>
-<option value="3">Financial Choices</option>
-<option value="4">Confidence/Self-Esteem</option>
-<option value="5">Religious Spiritual Values</option>
-<option value="6">Materialism</option>
-<option value="7">Image (Fashion sense/Body Modifications)</option>
-<option value="8">Occupation</option>
-<option value="9">Work Ethic</option>
-<option value="10">Household Care, Maintenance and Cleanliness</option>
-<option value="11">Communication Style/Manners</option>
-<option value="12">Artsy/Creative/Musical</option>
-<option value="13">Charitable/Philanthropic</option>
-<option value="14">Pursuing a Greater Purpose </option>
-<option value="15">Social Status/Sociability</option>
-<option value="16">Cultured/Well-traveled/"Woke"</option>
-<option value="17">Self-Care/Personal Hygiene/Cleanliness</option>
-<option value="18">Honesty/Dependable/Reliable</option>
-<option value="19">Family Values</option>
-</select><br />
 
-<label>Value 2</label>
-<select>
-<option selected="selected" value="1">Education/Knowledge</option>
-<option value="2">Street Smarts</option>
-<option value="3">Financial Choices</option>
-<option value="4">Confidence/Self-Esteem</option>
-<option value="5">Religious Spiritual Values</option>
-<option value="6">Materialism</option>
-<option value="7">Image (Fashion sense/Body Modifications)</option>
-<option value="8">Occupation</option>
-<option value="9">Work Ethic</option>
-<option value="10">Household Care, Maintenance and Cleanliness</option>
-<option value="11">Communication Style/Manners</option>
-<option value="12">Artsy/Creative/Musical</option>
-<option value="13">Charitable/Philanthropic</option>
-<option value="14">Pursuing a Greater Purpose </option>
-<option value="15">Social Status/Sociability</option>
-<option value="16">Cultured/Well-traveled/"Woke"</option>
-<option value="17">Self-Care/Personal Hygiene/Cleanliness</option>
-<option value="18">Honesty/Dependable/Reliable</option>
-<option value="19">Family Values</option>
-</select><br />
+// on submit, show results
+submitButton.addEventListener('click', showResults);
 
-<label>Value 3</label>
-<select>
-<option selected="selected" value="1">Education/Knowledge</option>
-<option value="2">Street Smarts</option>
-<option value="3">Financial Choices</option>
-<option value="4">Confidence/Self-Esteem</option>
-<option value="5">Religious Spiritual Values</option>
-<option value="6">Materialism</option>
-<option value="7">Image (Fashion sense/Body Modifications)</option>
-<option value="8">Occupation</option>
-<option value="9">Work Ethic</option>
-<option value="10">Household Care, Maintenance and Cleanliness</option>
-<option value="11">Communication Style/Manners</option>
-<option value="12">Artsy/Creative/Musical</option>
-<option value="13">Charitable/Philanthropic</option>
-<option value="14">Pursuing a Greater Purpose </option>
-<option value="15">Social Status/Sociability</option>
-<option value="16">Cultured/Well-traveled/"Woke"</option>
-<option value="17">Self-Care/Personal Hygiene/Cleanliness</option>
-<option value="18">Honesty/Dependable/Reliable</option>
-<option value="19">Family Values</option>
-</select><br />
-
-<label>Value 4</label>
-<select>
-<option selected="selected" value="1">Education/Knowledge</option>
-<option value="2">Street Smarts</option>
-<option value="3">Financial Choices</option>
-<option value="4">Confidence/Self-Esteem</option>
-<option value="5">Religious Spiritual Values</option>
-<option value="6">Materialism</option>
-<option value="7">Image (Fashion sense/Body Modifications)</option>
-<option value="8">Occupation</option>
-<option value="9">Work Ethic</option>
-<option value="10">Household Care, Maintenance and Cleanliness</option>
-<option value="11">Communication Style/Manners</option>
-<option value="12">Artsy/Creative/Musical</option>
-<option value="13">Charitable/Philanthropic</option>
-<option value="14">Pursuing a Greater Purpose </option>
-<option value="15">Social Status/Sociability</option>
-<option value="16">Cultured/Well-traveled/"Woke"</option>
-<option value="17">Self-Care/Personal Hygiene/Cleanliness</option>
-<option value="18">Honesty/Dependable/Reliable</option>
-<option value="19">Family Values</option>
-</select><br />
-
-<label>Value 5</label>
-<select>
-<option selected="selected" value="1">Education/Knowledge</option>
-<option value="2">Street Smarts</option>
-<option value="3">Financial Choices</option>
-<option value="4">Confidence/Self-Esteem</option>
-<option value="5">Religious Spiritual Values</option>
-<option value="6">Materialism</option>
-<option value="7">Image (Fashion sense/Body Modifications)</option>
-<option value="8">Occupation</option>
-<option value="9">Work Ethic</option>
-<option value="10">Household Care, Maintenance and Cleanliness</option>
-<option value="11">Communication Style/Manners</option>
-<option value="12">Artsy/Creative/Musical</option>
-<option value="13">Charitable/Philanthropic</option>
-<option value="14">Pursuing a Greater Purpose </option>
-<option value="15">Social Status/Sociability</option>
-<option value="16">Cultured/Well-traveled/"Woke"</option>
-<option value="17">Self-Care/Personal Hygiene/Cleanliness</option>
-<option value="18">Honesty/Dependable/Reliable</option>
-<option value="19">Family Values</option>
-</select><br />
-
-//<!-- Submit -->
-
-<button type="submit" value="Submit">Submit</button></fieldset></form>
 

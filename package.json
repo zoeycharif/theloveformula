@@ -1,20 +1,25 @@
 {
   "name": "theloveformula",
   "version": "1.0.0",
-  "description": "node JS server for matchmaking app",
+  "description": "node JS server for love formula web app",
   "main": "index.js",
   "scripts": {
-    "watch": "nodemon ./start.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
+    "watch": "nodemon ./server.js",
     "heroku-postbuild": "npm install --production"
   },
-  "repository":{
+  "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/zoeycharif/theloveformula.git"
+    "url": "git+https://github.com/zoeycharif/theloveformula.git"
   },
-  "author": "erin averill",
-  "license": "UCI",
+  "keywords": [
+    "javascript",
+    "heroku",
+    "node.js",
+    "machine-learning"
+  ],
+  "author": "the love formula",
+  "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
     "dotenv": "^8.2.0",
@@ -28,5 +33,9 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.3"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/zoeycharif/theloveformula/issues"
+  },
+  "homepage": "https://github.com/zoeycharif/theloveformula#readme"
 }
