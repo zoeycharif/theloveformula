@@ -111,9 +111,9 @@ def formsubmit():
     return render_template("rating.html")
 
 
-@app.route("/profile")
-def profile():
-    return render_template("profile.html")
+@app.route("/survey")
+def survey():
+    return render_template("survey.html")
 
 
 @app.route("/formsubmit1", methods= ["POST", "GET"])
@@ -121,10 +121,10 @@ def formsubmit1():
     # session = Session(engine)
     # results = session.query(Profiles.qp_communication).all()
     # print(results)
-    profiledata = []
-    profiledata.append(request.form["Value1"])
-    profiledata.append(request.form.get("QP_EmotionalIntelligence"))
-    print(profiledata)
+    surveydata = []
+    surveydata.append(request.form["Value1"])
+    surveydata.append(request.form.get("QP_EmotionalIntelligence"))
+    print(surveydata)
     # profiledata.append(request.form["Gender"])
     # profiledata.append(request.form["Orientation"])
     # profiledata.append(request.form["CurrentStatus"])
@@ -156,12 +156,82 @@ def formsubmit1():
     # profiledata.append(request.form["Type5"])
     # profiledata.append(request.form["PartnerType5"])
 
-    return render_template("profile.html")
+    return render_template("survey.html")
 
-@app.route("/personality", methods=["GET", "POST"])
+@app.route("/profile", methods=["GET", "POST"])
 def personality():
 
-    return render_template("personality.html")
+    return render_template("profile.html")
+
+@app.route("/formsubmit2", methods= ["POST", "GET"])
+def formsubmit2():
+
+    profiledata = []
+    surveydata.append(request.form["AgeRange"])
+    surveydata.append(request.form["Gender"])
+    surveydata.append(request.form["Orientation"])
+    surveydata.append(request.form["SelfEducation"])
+    surveydata.append(request.form["SelfFinancial"])
+    surveydata.append(request.form["SelfConfidence"])
+    surveydata.append(request.form["SelfReligious"])
+    surveydata.append(request.form["SelfMaterialism"])
+    surveydata.append(request.form["SelfImage"])
+    surveydata.append(request.form["SelfOccupation"])
+    surveydata.append(request.form["SelfWorkethic"])
+    surveydata.append(request.form["SelfHousehold"])
+    surveydata.append(request.form["SelfCommunication"])
+    surveydata.append(request.form["SelfArtsy"])
+    surveydata.append(request.form["SelfCharitable"])
+    surveydata.append(request.form["SelfPurpose"])
+    surveydata.append(request.form["SelfStatus"])
+    surveydata.append(request.form["SelfCultured"])
+    surveydata.append(request.form["SelfCare"])
+    surveydata.append(request.form["SelfHonesty"])
+    surveydata.append(request.form["SelfFamily"])
+    surveydata.append(request.form["Value1"])
+    surveydata.append(request.form["Value2"])
+    surveydata.append(request.form["Value3"])
+    surveydata.append(request.form["Value4"])
+    surveydata.append(request.form["Value5"])
+    surveydata.append(request.form["SelfAppearance"])
+    surveydata.append(request.form["SelfSocial"])
+    surveydata.append(request.form["SelfShy"])
+    surveydata.append(request.form["SelfAlpha"])
+    surveydata.append(request.form["SelfHumorous"])
+    surveydata.append(request.form["SelfSpontaneous"])
+    surveydata.append(request.form["SelfGenerous"])
+    surveydata.append(request.form["SelfDriven"])
+    surveydata.append(request.form["SelfIntuitive"])
+    surveydata.append(request.form["SelfSexual"])
+    surveydata.append(request.form["SelfOpenMinded"])
+    surveydata.append(request.form["SelfVibe"])
+    surveydata.append(request.form["SelfOvergiving"])
+    surveydata.append(request.form["SelfDominant"])
+    surveydata.append(request.form["Type1"])
+    surveydata.append(request.form["Type2"])
+    surveydata.append(request.form["Type3"])
+    surveydata.append(request.form["Type4"])
+    surveydata.append(request.form["Type5"])
+    surveydata.append(request.form["S1_LogicVsFeelings"])
+    surveydata.append(request.form["S1_QuitsVsStays"])
+    surveydata.append(request.form["S1_PracticalVsEmotional"])
+    surveydata.append(request.form["S1_CompatibilityVsChemistry"])
+    surveydata.append(request.form["S2_ImprovementVsAcceptance"])
+    surveydata.append(request.form["S2_ShortcomingsVSAcceptance"])
+    surveydata.append(request.form["S3_SocialAcceptanceVsDontCare"])
+    surveydata.append(request.form["S2_PickyVsPositives"])
+    surveydata.append(request.form["S3_SocialAcceptanceVsDontCare"])
+    surveydata.append(request.form["S3_SimilarVsDifferent"])
+    surveydata.append(request.form["S4_LowStandardsVsHighStandards"])
+    surveydata.append(request.form["S4_ImBetterVsMatch"])
+    surveydata.append(request.form["S4_StayIfImBetterVsStayIfPartnerBetter"])
+          
+
+    return render_template("profile.html")
+
+
+
+
 
 # @app.route("/formsubmit1", methods= ["POST", "GET"])
 # def formsubmit1():
