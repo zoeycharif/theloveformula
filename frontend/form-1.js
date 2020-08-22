@@ -21,7 +21,7 @@ var submitButton = document.getElementbyID('submit');
 // objects to represent indiv. questions + array to hold all the questions in a form
 // allocate each chunk of questions to their respective form .js file (form1,form2,form3)
 // aka remove all these myQuestions objects from the main server page
-const myQuestions = [
+var myQuestions = [
 {
   question: "1. How old are you?",
   answers: {
@@ -81,6 +81,30 @@ function buildForm(){
           </label>`
           );
       }
+
+      // PLACEHOLDER for form validation/error handling
+      // Data validation is the process of ensuring that user input is 
+      // clean, correct, and useful.
+      // Typical validation tasks are:
+      /*  has the user filled in all required fields?
+       *  has the user entered a valid date?
+       *  has the user entered text in a numeric field?
+
+    Most often, the purpose of data validation is to ensure correct user input.
+    Validation can be defined by many different methods, 
+    and deployed in many different ways.
+    Server side validation is performed by a web server, 
+    after input has been sent to the server.
+    Client side validation is performed by a web browser, 
+    before input is sent to a web server. */
+  
+  function validateForm() {
+    var x = document.forms["myForm"]["fname"].value;
+    if (x == "") {
+      alert("Name must be filled out");
+      return false;
+  }
+}
 
       // add this question and its answers to the output
       output.push(
