@@ -38,6 +38,14 @@ Profiles = Base.classes.profiles
 @app.route("/")
 def home():
     return render_template("index.html")
+
+@app.route("/newuser")
+def newuser():
+    return render_template("newuser.html")
+
+@app.route("/returnuser")
+def returnuser():
+    return render_template("returnuser.html")
     
 
 @app.route("/ratings")
@@ -49,49 +57,54 @@ def ratings():
 def formsubmit():
     session = Session(engine)
     results = session.query(Profiles.qp_communication).all()
-    print(results)
-    value1 = request.form["Value1"]
-    selfvalue1 = request.form["SelfValue1"]
-    partnervalue1 = request.form["PartnerValue1"]
-    value2 = request.form["Value2"]
-    selfvalue2 = request.form["SelfValue2"]
-    partnervalue2 = request.form["PartnerValue2"]
-    value3 = request.form["Value3"]
-    selfvalue3 = request.form["SelfValue3"]
-    partnervalue3 = request.form["PartnerValue3"]
-    value4 = request.form["Value4"]
-    selfvalue4 = request.form["SelfValue4"]
-    partnervalue4 = request.form["PartnerValue4"]
-    value5 = request.form["Value5"]
-    selfvalue5 = request.form["SelfValue5"]
-    partnervalue5 = request.form["PartnerValue5"]
-    type1 = request.form["Type1"]
-    partnertype1 = request.form["PartnerType1"]
-    type1 = request.form["Type1"]
-    partnertype1 = request.form["PartnerType1"]
-    type2 = request.form["Type2"]
-    partnertype2 = request.form["PartnerType2"]
-    type3 = request.form["Type3"]
-    partnertype3 = request.form["PartnerType3"]
-    type4 = request.form["Type4"]
-    partnertype4 = request.form["PartnerType4"]
-    type5 = request.form["Type5"]
-    partnertype5 = request.form["PartnerType5"]
-    # logicVfeelings = request.form["S1_logicvsfeelings"]
-    # quitsVstays = request.form["S1_QuitsVsStays"]
-    # practicalVemotional = request.form["S1_PracticalVsEmotional"]
-    # compVchem = request.form["S1_CompatibilityVsChemistry"]
-    # improVaccept = request.form["S2_ImprovementVsAcceptance"]
-    # shortVaccept = request.form["S2_ShortcomingsVSAcceptance"]
-    # pickyVpost = request.form["S2_PickyVsPositives"]
-    # socialVdontcare = request.form["S3_SocialAcceptanceVsDontCare"]
-    # similarVdiff = request.form["S3_SimilarVsDifferent"]
-    # lowsVhighs = request.form["S4_LowStandardsVsHighStandards"]
-    # betterVmatch = request.form["S4_ImBetterVsMatch"]
-    # staymeVstaypartner = request.form["S4_StayIfImBetterVsStayIfPartnerBetter"]
-    print (value1)
-    print (selfvalue1)
-    print (partnervalue1)
+    # print(results)
+    lovedata = []
+    lovedata.append(request.form["Value1"])
+    lovedata.append(request.form["SelfValue1"])
+    lovedata.append(request.form["PartnerValue1"])
+    lovedata.append(request.form["Value2"])
+    lovedata.append(request.form["Value1"])
+    lovedata.append(request.form["SelfValue1"])
+    lovedata.append(request.form["PartnerValue1"])
+    lovedata.append(request.form["Value2"])
+    lovedata.append(request.form["SelfValue2"])
+    lovedata.append(request.form["PartnerValue2"])
+    lovedata.append(request.form["Value3"])
+    lovedata.append(request.form["SelfValue3"])
+    lovedata.append(request.form["PartnerValue3"])
+    lovedata.append(request.form["Value4"])
+    lovedata.append(request.form["SelfValue4"])
+    lovedata.append(request.form["PartnerValue4"])
+    lovedata.append(request.form["Value5"])
+    lovedata.append(request.form["SelfValue5"])
+    lovedata.append(request.form["PartnerValue5"])
+    lovedata.append(request.form["Type1"])
+    lovedata.append(request.form["PartnerType1"])
+    lovedata.append(request.form["Type1"])
+    lovedata.append(request.form["PartnerType1"])
+    lovedata.append(request.form["Type2"])
+    lovedata.append(request.form["PartnerType2"])
+    lovedata.append(request.form["Type3"])
+    lovedata.append(request.form["PartnerType3"])
+    lovedata.append(request.form["Type4"])
+    lovedata.append(request.form["PartnerType4"])
+    lovedata.append(request.form["Type5"])
+    lovedata.append(request.form["PartnerType5"])
+    lovedata.append(request.form["S1_LogicVsFeelings"])
+    lovedata.append(request.form["S1_QuitsVsStays"])
+    lovedata.append(request.form["S1_PracticalVsEmotional"])
+    lovedata.append(request.form["S1_CompatibilityVsChemistry"])
+    lovedata.append(request.form["S2_ImprovementVsAcceptance"])
+    lovedata.append(request.form["S2_ShortcomingsVSAcceptance"])
+    lovedata.append(request.form["S2_PickyVsPositives"])
+    lovedata.append(request.form["S3_SocialAcceptanceVsDontCare"])
+    lovedata.append(request.form["S3_SimilarVsDifferent"])
+    lovedata.append(request.form["S4_LowStandardsVsHighStandards"])
+    lovedata.append(request.form["S4_ImBetterVsMatch"])
+    lovedata.append(request.form["S4_StayIfImBetterVsStayIfPartnerBetter"])
+    print (lovedata)
+    # print (selfvalue1)
+    # print (partnervalue1)
     session.close()
     #db.session.add(profiles)
     #db.session.commit()
@@ -100,6 +113,46 @@ def formsubmit():
 
 @app.route("/profile")
 def profile():
+    return render_template("profile.html")
+
+
+@app.route("/formsubmit1", methods= ["POST", "GET"])
+def formsubmit1():
+    session = Session(engine)
+    results = session.query(Profiles.qp_communication).all()
+    print(results)
+    profiledata = []
+    profiledata.append(request.form["AgeRange"])
+    # profiledata.append(request.form["Gender"])
+    # profiledata.append(request.form["Orientation"])
+    # profiledata.append(request.form["CurrentStatus"])
+    # profiledata.append(request.form["TogetherTime"])
+    # profiledata.append(request.form["RelationshipDescription"])
+    # profiledata.append(request.form["Value1"])
+    # profiledata.append(request.form["SelfValue1"])
+    # profiledata.append(request.form["PartnerValue1"])
+    # profiledata.append(request.form["Value2"])
+    # profiledata.append(request.form["SelfValue2"])
+    # profiledata.append(request.form["PartnerValue2"])
+    # profiledata.append(request.form["Value3"])
+    # profiledata.append(request.form["SelfValue3"])
+    # profiledata.append(request.form["PartnerValue3"])
+    # profiledata.append(request.form["Value4"])
+    # profiledata.append(request.form["SelfValue4"])
+    # profiledata.append(request.form["PartnerValue4"])
+    # profiledata.append(request.form["Value5"])
+    # profiledata.append(request.form["SelfValue5"])
+    # profiledata.append(request.form["PartnerValue5"])
+    # profiledata.append(request.form["Type1"])
+    # profiledata.append(request.form["PartnerType1"])
+    # profiledata.append(request.form["Type2"])
+    # profiledata.append(request.form["PartnerType2"])
+    # profiledata.append(request.form["Type3"])
+    # profiledata.append(request.form["PartnerType3"])
+    # profiledata.append(request.form["Type4"])
+    # profiledata.append(request.form["PartnerType4"])
+    # profiledata.append(request.form["Type5"])
+    # profiledata.append(request.form["PartnerType5"])
 
     return render_template("profile.html")
 
@@ -126,5 +179,7 @@ if __name__ == "__main__":
 
 
 
-
+# value1 = request.form["Value1"]
+# selfvalue1 = request.form["SelfValue1"]
+# partnervalue1 = request.form["PartnerValue1"]
   
