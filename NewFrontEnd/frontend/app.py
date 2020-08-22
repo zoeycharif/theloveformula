@@ -118,11 +118,13 @@ def profile():
 
 @app.route("/formsubmit1", methods= ["POST", "GET"])
 def formsubmit1():
-    session = Session(engine)
-    results = session.query(Profiles.qp_communication).all()
-    print(results)
+    # session = Session(engine)
+    # results = session.query(Profiles.qp_communication).all()
+    # print(results)
     profiledata = []
-    profiledata.append(request.form["AgeRange"])
+    profiledata.append(request.form["Value1"])
+    profiledata.append(request.form.get("QP_EmotionalIntelligence"))
+    print(profiledata)
     # profiledata.append(request.form["Gender"])
     # profiledata.append(request.form["Orientation"])
     # profiledata.append(request.form["CurrentStatus"])
