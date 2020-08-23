@@ -48,22 +48,28 @@ Profiles = Base.classes.profiles
 
 
 
-
 # create route that renders index.html template
 @app.route("/")
 def home():
 
     return render_template("index.html")
 
-@app.route("/newuser")
-def newuser():
+@app.route("/template")
+def template():
 
-    return render_template("newuser.html")
+    return render_template("template.html")
 
-@app.route("/returnuser")
-def returnuser():
 
-    return render_template("returnuser.html")
+
+# @app.route("/newuser")
+# def newuser():
+
+#     return render_template("newuser.html")
+
+# @app.route("/returnuser")
+# def returnuser():
+
+#     return render_template("returnuser.html")
     
 
 @app.route("/ratings")
