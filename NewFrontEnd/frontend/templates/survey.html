@@ -11,72 +11,83 @@
 
         <h3>Profile</h3>
         <!-- How old are you -->
-        <!-- <h4>How old are you?</h4>
-        <div name="AgeRange">
-            <input type="radio" value="under18" /> Under 18 <br />
-            <input type="radio" value="18-24" /> 18-24 <br />
-            <input type="radio" value="25-34" /> 25-34 <br />
-            <input type="radio" value="35-44" /> 35-44 <br />
-            <input type="radio" value="45-54" /> 45-54 <br />
-            <input type="radio" value="55-64" /> 55-64 <br />
-            <input type="radio" value="65+" /> 65+ <br />
-        </div> -->
-
+        <h4>How old are you?</h4>
+        <div>
+            <select name="AgeRange">        
+            <option selected="selected" value="Under 18">Under 18</option>
+            <option value="18-24">18-24</option>
+            <option value="25-34">25-34</option>
+            <option value="35-44">35-44</option>
+            <option value="45-54">45-54</option>
+            <option value="55-64">55-64</option>
+            <option value="65+">65+</option>
+          
+            </select><br /></div>
 
 
         <!-- What is your gender -->
-        <!-- <h4>What is your gender?</h4>
-        <div><select name="Gender">
- <input checked="checked"  type="radio" value="Male" /> Male <br /> 
- <input type="radio" value="Female" /> Female <br />
- <input type="radio" value="Transgender" /> Transgender <br />
- <input type="radio" value="Prefer not to say" /> Prefer not to say <br />
-</select>
-        </div> -->
+        <h4>What is your gender?</h4>
+
+
+        <div>
+            <select name="Gender">        
+            <option selected="selected" value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Transgender">Transgender</option>
+            <option value="Prefer not to say">Prefer not to say</option>
+            </select><br /></div>
+
 
         <!-- What is your sexual orientation -->
-        <!-- <h4>What is your sexual orientation?</h4>
-        <div><select name="Orientation">
-<input checked="checked"  type="radio" value="Heterosexual" /> Heterosexual <br /> 
-<input  type="radio" value="Homosexual" /> Homosexual <br />
-<input  type="radio" value="Bisexual" /> Bisexual <br />
-<input  type="radio" value="Pansexual" /> Pansexual <br />
-<input  type="radio" value="Asexual" /> Asexual <br />
-</select>
-        </div>
+        <!-- What is your sexual orientation -->
+        <h4>What is your sexual orientation?</h4>
+
+        <div>
+            <select name="Orientation">        
+    <option selected="selected" value="Heterosexual">Heterosexual</option>
+    <option value="Homosexual">Homosexual</option>
+    <option value="Bisexual">Bisexual</option>
+    <option value="Pansexual">Pansexual</option>
+    <option value="Asexual">Asexual</option>
+    </select><br /></div>
         <h3>Ratings</h3>
 
         <h4>What is your relationship status?</h4>
-        <div><select name="CurrentStatus">
-   <input checked="checked" name="AgeRange" type="radio" value="" /> We are currently together. <br /> 
-   <input name="AgeRange" type="radio" value="18-24" /> We are currently on a 'break'. <br />
-   <input name="AgeRange" type="radio" value="25-34" /> I broke up with him/her. <br />
-   <input name="AgeRange" type="radio" value="35-44" /> He/She broke up with me. <br />
-   <input name="AgeRange" type="radio" value="45-54" /> It was a mutual break up. <br />
-</select>
-        </div>
+
+        <div>
+            <select name="CurrentStatus">        
+            <option selected="selected" value="We are currently together.">We are currently together.</option>
+            <option value="We are currently on a 'break'.">We are currently on a 'break'.</option>
+            <option value="I broke up with him/her.">I broke up with him/her.</option>
+            <option value="He/She broke up with me."> He/She broke up with me.</option>
+            <option value="It was a mutual break up.">It was a mutual break up. </option>
+            </select><br /></div>
 
         <h4>How long were you/have you been together?</h4>
-        <div><select name="TogetherTime">
-   <input checked="checked" name="" type="radio" value=" " /> Under 1 month <br /> 
-   <input name="AgeRange" type="radio" value="18-24" /> 1-3 months <br />
-   <input name="AgeRange" type="radio" value="25-34" /> 3-6 months <br />
-   <input name="AgeRange" type="radio" value="35-44" /> 6months - 1 year <br />
-   <input name="AgeRange" type="radio" value="45-54" /> 1-2 years <br />
-   <input name="AgeRange" type="radio" value="35-44" /> 4-7 years <br />
-   <input name="AgeRange" type="radio" value="45-54" /> 7 years+ <br />
-</select>
-        </div>
+        <div>
+            <select name="TogetherTime">        
+                <option selected="selected" value="Under 1 month">Under 1 month</option>
+                <option value="1-3 months.">1-3 months </option>
+                <option value="3-6 months">3-6 months</option>
+                <option value="6months - 1 year"> 6months - 1 year</option>
+                <option value="1-2 years">1-2 years  </option>
+                <option value="4-7 years"> 4-7 years</option>
+                <option value="7 years+">7 years+ </option>
+                </select><br /></div>
+
+
 
         <h4>How would you describe this relationship?</h4>
-        <div><select name="RelationshipDescription"></select>
-            <input checked="checked" name="" type="radio" value=" " /> He/She was slightly out of my league. <br />
-            <input name="AgeRange" type="radio" value="18-24" /> He/She was very much out of my league <br />
-            <input name="AgeRange" type="radio" value="25-34" /> I was slightly out of his/her league. <br />
-            <input name="AgeRange" type="radio" value="35-44" /> I was very much out of his/her league. <br />
-            <input name="AgeRange" type="radio" value="45-54" /> I thought we were a good match. <br />
-            </select>
-        </div> -->
+
+
+        <div>
+            <select name="RelationshipDescription">        
+            <option selected="selected" value="He/She was slightly out of my league.">He/She was slightly out of my league.</option>
+            <option value="He/She was very much out of my league ">He/She was very much out of my league </option>
+            <option value="I was slightly out of his/her league.">I was slightly out of his/her league.</option>
+            <option value="I was very much out of his/her league."> I was very much out of his/her league.</option>
+            <option value="I thought we were a good match. ">I thought we were a good match. </option>
+            </select><br /></div>
 
 
         <h3>Ratings & Assessment</h3>
@@ -552,43 +563,41 @@
             <option value="1">1</option>
               </select><br />
         </div>
+        <br />
+        <br />
+        <br />
 
 
 
+        <label>Please indicate your decision-making process when you entered this relationship/situationship</label><br /><br />
 
-        <!--         <label>Please indicate your decision-making process when you entered this relationship/situationship</label>
-        <div class="d-flex justify-content-center my-4" id="s1_logicvsfeelings"> <select name="S_DecisionMakingProcess">
-    <span class="font-weight-bold blue-text mr-2 mt-1">It was based on values</span>
-    <form class="range-field w-50">
-      <input class="border-0" type="range" min="0" 
-      max="100" />
-    </form>
-    <span class="font-weight-bold blue-text ml-2 mt-1">It was based on type</span>
-</select>
+
+        <div class="d-flex justify-content-center my-4" id="S_DecisionMakingProces">
+            <span class="font-weight-bold blue-text mr-2 mt-1">It was based on values</span>
+            <div class="range-field w-50">
+                <input class="border-0" type="range" min="0" max="100" name="S_DecisionMakingProcess" />
+            </div>
+            <span class="font-weight-bold blue-text ml-2 mt-1">It was based on type</span>
         </div>
         </br>
         </br>
 
         <h4>Indicate if the statement applies to you during the time with your significant other (please check all that apply)
         </h4>
-        <br> -->
+        <br>
         <input type="checkbox" name="QP_EmotionalIntelligence">
         <label> I consider myself emotionally intelligent</label> <br>
 
-        <!--
-        <input type="checkbox" name="subject" id="">
+        <input type="checkbox" name="Q_Jealous">
         <label>I was jealous</label> <br>
 
-        <input type="checkbox" name="Q_Jealous">
+        <input type="checkbox" name="Q_PartnerJealous">
         <label>She/He was jealous</label> <br>
 
-        <input type="checkbox" name="Q_PartnerJealous">
-        <label>He/she was manipulative</label> <br>
+        <!-- <input type="checkbox" name="Q_PartnerJealous">
+        <label>He/she was manipulative</label> <br> -->
 
-        <input type="checkbox" name="subject" id="">
-        <label>We had great sexual chemistry throughout the relationship</label> <br>
-
-        <input type="checkbox" name="Q_Manipulative" id="">
+        <input type="checkbox" name="Q_Manipulative">
         <label>He/She was manipulative</label> <br>
 
         <input type="checkbox" name="QP_SexualChemistry">
@@ -667,7 +676,7 @@
         <label>We moved too fast</label> <br>
 
         <input type="checkbox" name="Q_ShowOff">
-        <label>I often felt my partner was showing off</label> <br> -->
+        <label>I often felt my partner was showing off</label> <br>
 
 
 
@@ -675,117 +684,136 @@
         <!-- <p>Left: I base my relationship decisions on what make the most logical sense</p>
 <p>Right: I base my decisions on what 'feels right.'</p>  -->
 
-        <!-- <div name="S1_LogicVsFeelings" class="d-flex justify-content-center my-4" id="s1_logicvsfeelings">
-            <span class="font-weight-bold blue-text mr-2 mt-1">I base my relationship decisions on what make the most logical sense</span>
+
+        <div class="d-flex justify-content-center my-4" id="S1_LogicVsFeelings">
+            <span class="font-weight-bold blue-text mr-2 mt-1">I base my relationship decisions on what makes the most logical sense.</span>
             <div class="range-field w-50">
-                <input class="border-0" type="range" min="0" max="100" />
+                <input class="border-0" type="range" min="0" max="100" name="S1_LogicVsFeelings" />
             </div>
-            <span class="font-weight-bold blue-text ml-2 mt-1">I base my decisions on what 'feels right</span>
+            <span class="font-weight-bold blue-text ml-2 mt-1">I base my decisions on what 'feels' right.</span>
         </div>
         </br>
         </br>
-        <div name="S1_QuitsVsStays" class="d-flex justify-content-center my-4">
-            <span class="font-weight-bold blue-text mr-2 mt-1">I know when to call it quits</span>
+
+
+        <div class="d-flex justify-content-center my-4" id="S1_QuitsVsStays">
+            <span class="font-weight-bold blue-text mr-2 mt-1">I know when to call it quits.</span>
             <div class="range-field w-50">
-                <input class="border-0" type="range" min="0" max="100" />
+                <input class="border-0" type="range" min="0" max="100" name="S1_QuitsVsStays" />
             </div>
-            <span class="font-weight-bold blue-text ml-2 mt-1">I stay in relationships longer than I should</span>
+            <span class="font-weight-bold blue-text ml-2 mt-1">I stay in relationships longer than I should.</span>
         </div>
         </br>
         </br>
-        <div name="S1_PracticalVsEmotional" class="d-flex justify-content-center my-4">
-            <span class="font-weight-bold blue-text mr-2 mt-1">I seek practical benefits in relationships</span>
+        <div class="d-flex justify-content-center my-4" id="S1_PracticalVsEmotional">
+            <span class="font-weight-bold blue-text mr-2 mt-1">I seek practical benefits in relationships.</span>
             <div class="range-field w-50">
-                <input class="border-0" type="range" min="0" max="100" />
+                <input class="border-0" type="range" min="0" max="100" name="S1_PracticalVsEmotional" />
             </div>
             <span class="font-weight-bold blue-text ml-2 mt-1">I seek emotional benefits in relationships.</span>
         </div>
         </br>
         </br>
-        <div name="S1_CompatibilityVsChemistry" class="d-flex justify-content-center my-4">
-            <span class="font-weight-bold blue-text mr-2 mt-1">Compatibility is more important than chemistry</span>
+
+        <div class="d-flex justify-content-center my-4" id="S1_CompatibilityVsChemistry">
+            <span class="font-weight-bold blue-text mr-2 mt-1">Compatibility is more important than chemistry.</span>
             <div class="range-field w-50">
-                <input class="border-0" type="range" min="0" max="100" />
+                <input class="border-0" type="range" min="0" max="100" name="S1_CompatibilityVsChemistry" />
             </div>
             <span class="font-weight-bold blue-text ml-2 mt-1">Chemistry is more important than compatibility</span>
         </div>
         </br>
         </br>
 
-        <div name="S2_ImprovementVsAcceptance" class="d-flex justify-content-center my-4">
+        <div class="d-flex justify-content-center my-4" id="S2_ImprovementVsAcceptance">
             <span class="font-weight-bold blue-text mr-2 mt-1">I think everyone has room to improve themselves</span>
             <div class="range-field w-50">
-                <input class="border-0" type="range" min="0" max="100" />
+                <input class="border-0" type="range" min="0" max="100" name="S2_ImprovementVsAcceptance" />
             </div>
             <span class="font-weight-bold blue-text ml-2 mt-1">I love and appreciate my partner for who they are.</span>
         </div>
         </br>
         </br>
-        <div name="S2_ShortcomingsVSAcceptance" class="d-flex justify-content-center my-4">
+
+        <div class="d-flex justify-content-center my-4" id="S2_ShortcomingsVSAcceptance">
             <span class="font-weight-bold blue-text mr-2 mt-1">I think my partner should actively work on their shortcomings</span>
             <div class="range-field w-50">
-                <input class="border-0" type="range" min="0" max="100" />
+                <input class="border-0" type="range" min="0" max="100" name="S2_ShortcomingsVSAcceptance" />
             </div>
             <span class="font-weight-bold blue-text ml-2 mt-1">I don't judge my partner for their shortcomings</span>
         </div>
         </br>
         </br>
-        <div name="S2_PickyVsPositives" class="d-flex justify-content-center my-4">
+
+        <div class="d-flex justify-content-center my-4" id="S2_ShortcomingsVSAcceptance">
+            <span class="font-weight-bold blue-text mr-2 mt-1">What my friends and family think of my partner is very important to me</span>
+            <div class="range-field w-50">
+                <input class="border-0" type="range" min="0" max="100" name="S2_ShortcomingsVSAcceptance" />
+            </div>
+            <span class="font-weight-bold blue-text ml-2 mt-1">I don't care what my friends and family think about my partner.</span>
+        </div>
+        </br>
+        </br>
+
+        <div class="d-flex justify-content-center my-4" id="S2_PickyVsPositives">
             <span class="font-weight-bold blue-text mr-2 mt-1">I am picky.</span>
             <div class="range-field w-50">
-                <input class="border-0" type="range" min="0" max="100" />
+                <input class="border-0" type="range" min="0" max="100" name="S2_PickyVsPositives" />
             </div>
             <span class="font-weight-bold blue-text ml-2 mt-1">I easily find positives in my partner.</span>
         </div>
         </br>
         </br>
-        <div name="S3_SocialAcceptanceVsDontCare" class="d-flex justify-content-center my-4">
-            <span class="font-weight-bold blue-text mr-2 mt-1">What my friends and family think of my partner is very important to me</span>
+
+        <div class="d-flex justify-content-center my-4" id="S3_SocialAcceptanceVsDontCare">
+            <span class="font-weight-bold blue-text mr-2 mt-1">What my friends and family think of my partner is very important to me.</span>
             <div class="range-field w-50">
-                <input class="border-0" type="range" min="0" max="100" />
+                <input class="border-0" type="range" min="0" max="100" name="S3_SocialAcceptanceVsDontCare" />
             </div>
-            <span class="font-weight-bold blue-text ml-2 mt-1">I don't care what my friends and family think about my partner..</span>
+            <span class="font-weight-bold blue-text ml-2 mt-1">I don't care what my friends and family think about my partner.</span>
         </div>
         </br>
         </br>
-        <div name="S3_SimilarVsDifferent" class="d-flex justify-content-center my-4">
+
+        <div class="d-flex justify-content-center my-4" id="S3_SimilarVsDifferent">
             <span class="font-weight-bold blue-text mr-2 mt-1">I prefer a partner lives by a similar lifestyle</span>
             <div class="range-field w-50">
-                <input class="border-0" type="range" min="0" max="100" />
+                <input class="border-0" type="range" min="0" max="100" name="S3_SimilarVsDifferent" />
             </div>
             <span class="font-weight-bold blue-text ml-2 mt-1">I appreciate different ways of doing life.</span>
         </div>
         </br>
         </br>
-        <div name="S4_LowStandardsVsHighStandards" class="d-flex justify-content-center my-4">
+
+        <div class="d-flex justify-content-center my-4" id="S4_LowStandardsVsHighStandards">
             <span class="font-weight-bold blue-text mr-2 mt-1">I lower my standards to be in a relationship</span>
             <div class="range-field w-50">
-                <input class="border-0" type="range" min="0" max="100" />
+                <input class="border-0" type="range" min="0" max="100" name="S4_LowStandardsVsHighStandards" />
             </div>
             <span class="font-weight-bold blue-text ml-2 mt-1">I only get in relationships if they meet or exceed my standards.</span>
         </div>
         </br>
         </br>
-        <div name="S4_ImBetterVsMatch" class="d-flex justify-content-center my-4">
+
+        <div class="d-flex justify-content-center my-4" id="S4_ImBetterVsMatch">
             <span class="font-weight-bold blue-text mr-2 mt-1">I feel more secure in a relationship if I know I’m better than my partner</span>
             <div class="range-field w-50">
-                <input class="border-0" type="range" min="0" max="100" />
+                <input class="border-0" type="range" min="0" max="100" name="S4_ImBetterVsMatch" />
             </div>
             <span class="font-weight-bold blue-text ml-2 mt-1">I feel more secure in a relationship with a partner who is a match or better than me</span>
         </div>
         </br>
         </br>
-        <div name="S4_StayIfImBetterVsStayIfPartnerBetter" class="d-flex justify-content-center my-4">
+
+        <div class="d-flex justify-content-center my-4" id="S4_StayIfImBetterVsStayIfPartnerBetter">
             <span class="font-weight-bold blue-text mr-2 mt-1">I stay in relationships longer if I think I’m better than my partner</span>
             <div class="range-field w-50">
-                <input class="border-0" type="range" min="0" max="100" />
+                <input class="border-0" type="range" min="0" max="100" name="S4_StayIfImBetterVsStayIfPartnerBetter" />
             </div>
-            <span class="font-weight-bold blue-text ml-2 mt-1">I stay in relationships longer if I think my partner is better than me.</span>
-        </div> -->
+            <span class="font-weight-bold blue-text ml-2 mt-1">I stay in relationships longer if I think my partner is better than me</span>
+        </div>
         </br>
         </br>
-
-
 
 
         <!-- Submit -->
