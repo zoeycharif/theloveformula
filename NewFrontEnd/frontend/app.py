@@ -18,7 +18,19 @@ app.secret_key = "hihi"
 # Database Setup
 #################################################
 
+
+#table names are #profiles #users
+
 # from flask_sqlalchemy import SQLAlchemy
+# app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'postgres://jyfiybgxgthlpk:803a3b11c71fa39768bb853656d3db2dcab91c1a40640b8314a7fbcc509ed242@ec2-3-215-207-12.compute-1.amazonaws.com:5432/d721k5b7avhgf8') 
+
+# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+# db = SQLAlchemy(app)
+
+# from .models import 
+
+
 URI = "postgres://rhjtenpwhdlbjl:4d3153a71d04ee752de8aab6fb6ac3baaff5fe615aa7a6223845aab661e0c6af@ec2-34-237-89-96.compute-1.amazonaws.com:5432/d1l8p7t7cs19l8"
 
 engine = create_engine(URI)
@@ -34,22 +46,29 @@ print(Base.classes.keys())
 Profiles = Base.classes.profiles
 
 
+
+
+
 # create route that renders index.html template
 @app.route("/")
 def home():
+
     return render_template("index.html")
 
 @app.route("/newuser")
 def newuser():
+
     return render_template("newuser.html")
 
 @app.route("/returnuser")
 def returnuser():
+
     return render_template("returnuser.html")
     
 
 @app.route("/ratings")
 def ratings():
+
     return render_template("rating.html")
 
 
