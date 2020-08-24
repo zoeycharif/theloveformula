@@ -61,17 +61,17 @@ def index():
         results = session.query(Profiles).filter_by(username=userId).all()
         print(len(results))
         if len(results)==0:
-            newUser = Profiles(username=userId) 
+            newUser = Profiles(username=userId)
             session.add(newUser)
             session.commit()
             session.close()
             print('New user created')
             return render_template("select.html")   #should go to survey page
         elif len(results)!=0:
-                print('existing user')    
+                print('existing user')
                 return render_template("select.html")   #should go to survey page.
     else:
-        return render_template("index.html")  
+        return render_template("index.html")
 
 
 # create route that renders select.html template
@@ -83,7 +83,7 @@ def select():
 # route for the profile page
 @app.route("/profile")
 def profile():
-    
+
     return render_template("profile.html")
 
 
@@ -604,6 +604,8 @@ def formsubmit1():
     surveydata.append(request.form["S4_StayIfImBetterVsStayIfPartnerBetter"])
 
     print(surveydata)
+    surveydata.append(userId)
+    data_func.insert_survey(surveydata)
     session.close()
     #db.session.add(profiles)
     #db.session.commit()
@@ -679,11 +681,18 @@ def formsubmit2():
     profiledata.append(request.form["S4_StayIfImBetterVsStayIfPartnerBetter"])
 
     print(profiledata)
+    profiledata.append(userId)
+    data_func.insert_profile(profiledata)
+
+    tm = get_results(userId)
+    print("topmatches: ")
+    print(tm)
+
     session.close()
     #db.session.add(profiles)
     #db.session.commit()
     #db.session.close()
-    return render_template("profile.html")
+    return render_template("profile.html", topmatches = tm)
 
 
 
