@@ -138,8 +138,8 @@ def formsubmit():
     #print (lovedata)
     data_func.insertData(lovedata)
     session.close()
-    #db.session.add(profiles)
-    #db.session.commit()
+    
+    
 
 #populate the data to be put into machine learning model
 #value 1
@@ -687,7 +687,7 @@ def formsubmit2():
     #db.session.add(profiles)
     #db.session.commit()
     #db.session.close()
-    return render_template("profile.html", topmatches = tm)
+    return render_template("outputprofile.html", topmatches = tm)
 
 
 
