@@ -98,7 +98,7 @@ def formsubmit():
     results = session.query(Profiles.qp_communication).all()
     # print(results)
     lovedata = []
-#    lovedata.appedn(request.form["Username"])
+    #lovedata.append(request.form["Username"])
     lovedata.append(request.form["Value1"])
     lovedata.append(request.form["SelfValue1"])
     lovedata.append(request.form["PartnerValue1"])
@@ -136,6 +136,7 @@ def formsubmit():
     lovedata.append(request.form["S4_LowStandardsVsHighStandards"])
     lovedata.append(request.form["S4_ImBetterVsMatch"])
     lovedata.append(request.form["S4_StayIfImBetterVsStayIfPartnerBetter"])
+    lovedata.append(userId)
     print (lovedata)
     insertData(lovedata)
     session.close()
