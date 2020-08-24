@@ -45,20 +45,28 @@ db_to_name = {'selfeducation':'Education/Knowledge/Street Smarts',
              'selfreligious': 'Religious/Spiritual Values',
              'selfmaterialism': 'Materialism/Superficiality',
              'selfimage': 'Image/Fashion Sense/Body Modification',
-             'selfoccupation': 'Occupation/Work',
-             'selfworkethic': 'Ethic/Self-Discipline',
+             'selfoccupation': 'Occupation/Work Ethic/Self-Discipline',
              'selfhousehold': 'Household Care, Maintenance and Cleanliness',
              'selfcommunication': 'Communication Style/Manners',
              'selfartsy': 'Artsy/Creative/Musical',
              'selfcharitable': 'Charitable/Philanthropic',
              'selfpurpose': 'Pursuing a Greater Purpose',
              'selfstatus': 'Social Status/Sociability',
-             'selfcultured': 'Cultured/Well-traveled/"Woke"',
+             'selfcultured': 'Cultured/Well-traveled/Woke',
              'selfselfcare': 'Self-Care/Personal Hygiene/Cleanliness',
              'selfhonesty': 'Honesty/Dependable/Reliable',
              'selffamily': 'Family Values'}
 
 name_to_db = {v: k for k, v in db_to_name.items()}
+
+def distinct(x):
+    ls = []
+    for e in x:
+        if e in ls:
+            continue
+        else:
+            ls.append(e)
+    return len(ls)
 
 conn = psycopg2.connect(user = config.user,
                       password = config.password,
@@ -85,8 +93,13 @@ cur.execute(sql.SQL("""select {},{},{},{},{},
 ))
 record = cur.fetchall()
 
+nullrec = []
+
 for x in record:
     print(x[0])
+    if None in x or 'Other (please specify)' in x or distinct(x[1:6]) != 5:
+        nullrec.append(x[0])
+        continue
     cur.execute(sql.SQL("""update {} set
                         {} = %s,
                         {} = %s,
@@ -111,7 +124,13 @@ for x in record:
                 sql.Identifier(col),
                 sql.Identifier('username')
             ), [randint(11),x[0]])
-    print("---")
+
+for r in nullrec:
+    cur.execute(sql.SQL("delete from {} where {} = %s").format(
+                        sql.Identifier('profiles'),
+                        sql.Identifier('username')),[r]
+    )
+
 conn.commit()
 
 if conn:
