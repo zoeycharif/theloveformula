@@ -669,7 +669,7 @@ def get_results(user):
                 sql.Identifier('username')),[user])
     record = cur.fetchone()
 
-    s= get_score(pickle.load(open("NewFrontEnd/frontend/static/data/feat_model.sav", 'rb')),
+    s= get_score(pickle.load(open("/static/data/feat_model.sav", 'rb')),
                 user,get_pscore(user, record[:-1]))
     if conn:
         cur.close()
