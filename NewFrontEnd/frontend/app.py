@@ -592,7 +592,8 @@ def formsubmit1():
     surveydata.append(request.form["S4_ImBetterVsMatch"])
     surveydata.append(request.form["S4_StayIfImBetterVsStayIfPartnerBetter"])
 
-    print(surveydata)
+    #print(surveydata)
+    print(len(surveydata))
     surveydata.append(userId)
     data_func.insert_survey(surveydata)
     session.close()
@@ -669,8 +670,9 @@ def formsubmit2():
     profiledata.append(request.form["S4_ImBetterVsMatch"])
     profiledata.append(request.form["S4_StayIfImBetterVsStayIfPartnerBetter"])
 
-    print(profiledata)
+    #print(profiledata)
     profiledata.append(userId)
+    print(len(profiledata))
     data_func.insert_profile(profiledata)
 
     tm = get_results(userId)
