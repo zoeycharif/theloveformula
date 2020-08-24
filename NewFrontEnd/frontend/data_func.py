@@ -167,7 +167,6 @@ def insertData(data):
                 sql.Identifier('partnertype4'),
                 sql.Identifier('type5'),
                 sql.Identifier('partnertype5'),
-                sql.Identifier('q_showoff'),
                 sql.Identifier('s1_logicvsfeelings'),
                 sql.Identifier('s1_quitsvsstays'),
                 sql.Identifier('s1_practicalvsemotional'),
@@ -605,8 +604,10 @@ def get_score(model, userdata, pscores):
         #print(score)
         scores[x[0]] = score
 
-    for user,ps in pscores:
-        res.append((user,scores[user]))
+    for y in pscores:
+        print(y)
+        print(y[0])
+        res.append((y[0],scores[y[0]]))
 
         if len(res) > 10:
             break
@@ -628,7 +629,7 @@ def get_results(user):
     cur = conn.cursor()
 
     cur.execute(sql.SQL("""select {},{},{},{},{},{}
-                        from {} where {} == %s""").format(
+                        from {} where {} = %s""").format(
                 sql.Identifier('value1'),
                 sql.Identifier('value2'),
                 sql.Identifier('value3'),
@@ -641,7 +642,7 @@ def get_results(user):
 
     print(f'record {record}')
     s= get_score(pickle.load(open("static/data/feat_model.sav", 'rb')),
-                user,get_pscore(user, record[:-1]))
+                user,get_pscore(user, record[:-1])[1])
     if conn:
         cur.close()
         conn.close()
