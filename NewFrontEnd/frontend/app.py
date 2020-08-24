@@ -1,4 +1,5 @@
 # import Libraries/Dependencies
+import pandas as pd
 import sqlalchemy
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
@@ -79,6 +80,12 @@ def home():
 
     return render_template("select.html")
 
+# route for the profile page
+@app.route("/profile")
+def profile():
+    
+    return render_template("profile.html")
+
 
 @app.route("/ratings")
 def ratings():
@@ -132,7 +139,7 @@ def formsubmit():
     lovedata.append(request.form["S4_StayIfImBetterVsStayIfPartnerBetter"])
     lovedata.append(userId)
     print (lovedata)
-    insertData(lovedata)
+    data_func.insertData(lovedata)
     session.close()
     #db.session.add(profiles)
     #db.session.commit()
@@ -490,8 +497,13 @@ def formsubmit():
         mldata[50] = abs(mldata[9] - mldata[10]*.99)
 
     #pickle will load the model template and run it on mldata saved in the static file.
+    print('pickle!')
     loaded_model = pickle.load(open("static/data/finalized_model.sav", 'rb'))
-    result = loaded_model.predict(list(mldata))
+    model_input = pd.DataFrame(data = [loaded_model])
+    print(model_input)
+
+    result = loaded_model.predict(model_input)
+    
     print(result[0][0])
     return render_template("rating.html", LoveRating = result[0][0])
 
