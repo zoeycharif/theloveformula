@@ -60,9 +60,10 @@ def index():
         results = session.query(Profiles).filter_by(username=userId).all()
         print(len(results))
         if len(results)==0:
-            newUser = Profiles(username=userId)
+            newUser = Profiles(username=userId) 
             session.add(newUser)
             session.commit()
+            session.close()
             print('New user created')
             return render_template("select.html")   #should go to survey page
         elif len(results)!=0:
@@ -587,6 +588,7 @@ def formsubmit1():
     session.close()
     #db.session.add(profiles)
     #db.session.commit()
+    #db.session.close()
     return render_template("survey.html")
 
 @app.route("/profile", methods=["GET", "POST"])
@@ -661,6 +663,7 @@ def formsubmit2():
     session.close()
     #db.session.add(profiles)
     #db.session.commit()
+    #db.session.close()
     return render_template("profile.html")
 
 
