@@ -439,6 +439,7 @@ def insert_survey(data):
                 {} = %s,
                 {} = %s,
                 {} = %s,
+                {} = %s,
                 {} = %s
                 where {} = %s""")
         .format(sql.Identifier('profiles'),
@@ -473,6 +474,7 @@ def insert_survey(data):
                 sql.Identifier('partnertype4'),
                 sql.Identifier('type5'),
                 sql.Identifier('partnertype5'),
+                sql.Identifier('s_decisionmakingprocess'),
                 sql.Identifier("qp_emotionalintelligence"),
                 sql.Identifier("q_jealous"),
                 sql.Identifier("q_partnerjealous"),
