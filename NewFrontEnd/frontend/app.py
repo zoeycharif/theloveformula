@@ -52,7 +52,7 @@ Profiles = Base.classes.profiles
 
 
 @app.route("/", methods=["POST","GET"])
-def newuser():
+def index():
     print('index')
     if flask.request.method=="POST":
         session = Session(engine)
@@ -63,8 +63,10 @@ def newuser():
             newUser = Profiles(username=userId)
             session.add(newUser)
             session.commit()
+            print('New user created')
             return render_template("select.html")   #should go to survey page
-        elif len(results)!=0:    
+        elif len(results)!=0:
+                print('existing user')    
                 return render_template("select.html")   #should go to survey page.
     else:
         return render_template("index.html")  
