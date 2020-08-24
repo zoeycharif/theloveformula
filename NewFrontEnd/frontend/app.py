@@ -95,7 +95,7 @@ def ratings():
 @app.route("/thanks")
 def thanks():
     return render_template("thanks.html")
-    
+
 
 
 @app.route("/formsubmit", methods= ["POST", "GET"])
@@ -511,7 +511,8 @@ def formsubmit():
     result = loaded_model.predict(model_input)
     print('results')
     print(result[0][0])
-    return render_template("outputrating.html", LoveRating = result[0][0])
+    prettyresult=(230-result[0][0])/230*100
+    return render_template("outputrating.html", LoveRating = prettyresult)
 
 
 @app.route("/survey")
