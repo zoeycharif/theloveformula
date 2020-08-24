@@ -494,6 +494,7 @@ def insert_survey(data):
     return 1
 
 def get_pscore(user,features):
+    print(f'\tfeatures: {features}')
     conn = psycopg2.connect(user = config.user,
                       password = config.password,
                       host = config.hostname,
@@ -638,6 +639,7 @@ def get_results(user):
                 sql.Identifier('username')),[user])
     record = cur.fetchone()
 
+    print(f'record {record}')
     s= get_score(pickle.load(open("static/data/feat_model.sav", 'rb')),
                 user,get_pscore(user, record[:-1]))
     if conn:
