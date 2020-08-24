@@ -38,6 +38,8 @@ Base.prepare(engine, reflect = True)
 #print(Base.classes.keys())
 Profiles = Base.classes.profiles
 
+global userId
+userId=""
 
 @app.route("/", methods=["POST","GET"])
 def index():
