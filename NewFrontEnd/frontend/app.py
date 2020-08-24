@@ -5,6 +5,7 @@ from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func, inspect
 
 from flask import Flask, render_template, jsonify, redirect, request, url_for, session, flash
+import flask
 from datetime import timedelta
 
 #################################################
@@ -30,7 +31,7 @@ app.secret_key = "hihi"
 
 # from .models import 
 
-
+userId = ""
 URI = "postgres://rhjtenpwhdlbjl:4d3153a71d04ee752de8aab6fb6ac3baaff5fe615aa7a6223845aab661e0c6af@ec2-34-237-89-96.compute-1.amazonaws.com:5432/d1l8p7t7cs19l8"
 
 engine = create_engine(URI)
@@ -55,14 +56,30 @@ def home():
 
     return render_template("index.html")
 
-@app.route("/newuser")
+@app.route("/newuser", methods=["POST","GET"])
 def newuser():
+    print('newuser')
+    if flask.request.method=="POST":
+        session = Session(engine)
+        userId = request.form['userId'].upper()
+        results = session.query(Profiles).filter_by(username=userId).all()
+        print(len(results))
+        if len(results)==0:
+            newUser = Profiles(username=userId)
+            session.add(newUser)
+            session.commit()
+            return render_template("index.html")   #should go to survey page
+        elif len(results)!=0:    
+                return render_template("index.html")   #should go to survey page.
+    else:
+        return render_template("newuser.html")    #should go to survey page.
+        
+    
 
-    return render_template("newuser.html")
 
 @app.route("/returnuser")
 def returnuser():
-
+    print('returning user')
     return render_template("returnuser.html")
     
 
@@ -70,7 +87,7 @@ def returnuser():
 def ratings():
 
     return render_template("rating.html")
-
+ 
 
 @app.route("/formsubmit", methods= ["POST", "GET"])
 def formsubmit():
@@ -78,6 +95,7 @@ def formsubmit():
     results = session.query(Profiles.qp_communication).all()
     # print(results)
     lovedata = []
+#    lovedata.appedn(request.form["Username"])
     lovedata.append(request.form["Value1"])
     lovedata.append(request.form["SelfValue1"])
     lovedata.append(request.form["PartnerValue1"])
