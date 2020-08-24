@@ -628,7 +628,7 @@ def get_results(user):
     cur = conn.cursor()
 
     cur.execute(sql.SQL("""select {},{},{},{},{},{}
-                        from {} where {} != %s""").format(
+                        from {} where {} == %s""").format(
                 sql.Identifier('value1'),
                 sql.Identifier('value2'),
                 sql.Identifier('value3'),
