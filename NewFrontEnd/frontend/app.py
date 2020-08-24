@@ -628,7 +628,7 @@ def formsubmit2():
     profiledata.append(request.form["SelfPurpose"])
     profiledata.append(request.form["SelfStatus"])
     profiledata.append(request.form["SelfCultured"])
-    profiledata.append(request.form["SelfCare"])
+    profiledata.append(request.form["SelfSelfCare"])
     profiledata.append(request.form["SelfHonesty"])
     profiledata.append(request.form["SelfFamily"])
     profiledata.append(request.form["Value1"])
