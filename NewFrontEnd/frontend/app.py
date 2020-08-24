@@ -91,7 +91,7 @@ def profile():
 def ratings():
 
     return render_template("rating.html")
- 
+
 
 @app.route("/formsubmit", methods= ["POST", "GET"])
 def formsubmit():
