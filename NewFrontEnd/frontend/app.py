@@ -584,7 +584,6 @@ def formsubmit1():
     surveydata.append(request.form["S1_CompatibilityVsChemistry"])
     surveydata.append(request.form["S2_ImprovementVsAcceptance"])
     surveydata.append(request.form["S2_ShortcomingsVSAcceptance"])
-    surveydata.append(request.form["S2_ShortcomingsVSAcceptance"])
     surveydata.append(request.form["S2_PickyVsPositives"])
     surveydata.append(request.form["S3_SocialAcceptanceVsDontCare"])
     surveydata.append(request.form["S3_SimilarVsDifferent"])
