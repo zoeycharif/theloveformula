@@ -2,6 +2,9 @@ import config
 
 import numpy as np
 import pandas as pd
+
+import pickle
+
 import psycopg2
 from psycopg2 import sql
 
@@ -353,3 +356,324 @@ def insert_profile(data):
         cur.close()
         conn.close()
     return 1
+
+def insert_survey(data):
+    conn = psycopg2.connect(user = config.user,
+                              password = config.password,
+                              host = config.hostname,
+                              port = config.port,
+                              database = config.database)
+
+    cur = conn.cursor()
+    cur.execute(
+        sql.SQL("""update {} set
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s
+                where {} = %s""")
+        .format(sql.Identifier('profiles'),
+                sql.Identifier('agerange'),
+                sql.Identifier('gender'),
+                sql.Identifier('orientation'),
+                sql.Identifier('currentstatus'),
+                sql.Identifier('togethertime'),
+                sql.Identifier('relationshipdescription'),
+                sql.Identifier('value1'),
+                sql.Identifier('selfvalue1'),
+                sql.Identifier('partnervalue1'),
+                sql.Identifier('value2'),
+                sql.Identifier('selfvalue2'),
+                sql.Identifier('partnervalue2'),
+                sql.Identifier('value3'),
+                sql.Identifier('selfvalue3'),
+                sql.Identifier('partnervalue3'),
+                sql.Identifier('value4'),
+                sql.Identifier('selfvalue4'),
+                sql.Identifier('partnervalue4'),
+                sql.Identifier('value5'),
+                sql.Identifier('selfvalue5'),
+                sql.Identifier('partnervalue5'),
+                sql.Identifier('type1'),
+                sql.Identifier('partnertype1'),
+                sql.Identifier('type2'),
+                sql.Identifier('partnertype2'),
+                sql.Identifier('type3'),
+                sql.Identifier('partnertype3'),
+                sql.Identifier('type4'),
+                sql.Identifier('partnertype4'),
+                sql.Identifier('type5'),
+                sql.Identifier('partnertype5'),
+                sql.Identifier("qp_emotionalintelligence"),
+                sql.Identifier("q_jealous"),
+                sql.Identifier("q_partnerjealous"),
+                sql.Identifier("q_manipulative"),
+                sql.Identifier("qp_sexualchemistry"),
+                sql.Identifier("q_attractionloss"),
+                sql.Identifier("q_suffocated"),
+                sql.Identifier("q_attention"),
+                sql.Identifier("q_coulddobetter"),
+                sql.Identifier("q_notgoodenough"),
+                sql.Identifier("qp_longterm"),
+                sql.Identifier("qp_independent"),
+                sql.Identifier("q_coping"),
+                sql.Identifier("qp_selfcare"),
+                sql.Identifier("q_emotionallydrained"),
+                sql.Identifier("q_depressed"),
+                sql.Identifier("q_abused"),
+                sql.Identifier("q_partnerabuse"),
+                sql.Identifier("q_shutdown"),
+                sql.Identifier("q_partnershutdown"),
+                sql.Identifier("q_privacyrespected"),
+                sql.Identifier("q_onoff"),
+                sql.Identifier("q_judged"),
+                sql.Identifier("qp_communication"),
+                sql.Identifier("q_controlled"),
+                sql.Identifier("q_trapped"),
+                sql.Identifier("qp_truetoself"),
+                sql.Identifier("q_comparedtoothers"),
+                sql.Identifier("q_movedtoofast"),
+                sql.Identifier("q_showoff"),
+                sql.Identifier('s1_logicvsfeelings'),
+                sql.Identifier('s1_quitsvsstays'),
+                sql.Identifier('s1_practicalvsemotional'),
+                sql.Identifier('s1_compatibilityvschemistry'),
+                sql.Identifier('s2_improvementvsacceptance'),
+                sql.Identifier('s2_shortcomingsvsacceptance'),
+                sql.Identifier('s2_pickyvspositives'),
+                sql.Identifier('s3_socialacceptancevsdontcare'),
+                sql.Identifier('s3_similarvsdifferent'),
+                sql.Identifier('s4_lowstandardsvshighstandards'),
+                sql.Identifier('s4_imbettervsmatch'),
+                sql.Identifier('s4_stayifimbettervsstayifpartnerbetter'),
+                sql.Identifier('username')),
+        data)
+    conn.commit()
+
+    if(conn):
+        cur.close()
+        conn.close()
+    return 1
+
+def get_pscore(user,features):
+    conn = psycopg2.connect(user = config.user,
+                      password = config.password,
+                      host = config.hostname,
+                      port = config.port,
+                      database = config.database)
+
+    cur = conn.cursor()
+
+    cur.execute(sql.SQL("select * from {} where {} = %s").format(
+                sql.Identifier('profiles'),
+                sql.Identifier('username')),[user])
+    userd = cur.fetchone()
+    #print(userd)
+
+    cur.execute(sql.SQL("""select {},{},{},{},{},{},{},{},{},{},{}
+                        from {} where {} != %s""").format(
+                sql.Identifier(name_to_db[features[0]]),
+                sql.Identifier(name_to_db[features[1]]),
+                sql.Identifier(name_to_db[features[2]]),
+                sql.Identifier(name_to_db[features[3]]),
+                sql.Identifier(name_to_db[features[4]]),
+                sql.Identifier('value1'),
+                sql.Identifier('value2'),
+                sql.Identifier('value3'),
+                sql.Identifier('value4'),
+                sql.Identifier('value5'),
+                sql.Identifier('username'),
+                sql.Identifier('profiles'),
+                sql.Identifier('username')),[user])
+
+    rec = cur.fetchall()
+
+    weights = [30,25,20,15,10]
+    scores = []
+
+    for r in rec:
+        if None in r:
+            continue
+        sc = 0
+        #print(r)
+        for i in range(len(r)):
+            if i < 5:
+                sc += weights[i] * r[i]
+            elif i < 10:
+                sc -= weights[i%5] * userd[dbcol.index(name_to_db[r[i]])]
+            else:
+                continue
+        scores.append((r[-1],sc))
+
+    if(conn):
+        cur.close()
+        conn.close()
+
+    scores.sort(key = lambda a: abs(a[1]))
+    return (userd,scores)
+
+def get_score(model, userdata, pscores):
+    conn = psycopg2.connect(user = config.user,
+                          password = config.password,
+                          host = config.hostname,
+                          port = config.port,
+                          database = config.database)
+
+    cur = conn.cursor()
+
+    # Print PostgreSQL version
+    cur.execute(sql.SQL("""select {},{},{},{},{},{},
+                        {},{},{},{},{},
+                        {},{},{},{},{},
+                        {},{},{} from {};""").format(
+                sql.Identifier('username'),
+                sql.Identifier('selfeducation'),
+                sql.Identifier('selffinancial'),
+                sql.Identifier('selfconfidence'),
+                sql.Identifier('selfreligious'),
+                sql.Identifier('selfmaterialism'),
+                sql.Identifier('selfimage'),
+                sql.Identifier('selfoccupation'),
+                sql.Identifier('selfworkethic'),
+                sql.Identifier('selfhousehold'),
+                sql.Identifier('selfcommunication'),
+                sql.Identifier('selfartsy'),
+                sql.Identifier('selfcharitable'),
+                sql.Identifier('selfpurpose'),
+                sql.Identifier('selfstatus'),
+                sql.Identifier('selfcultured'),
+                sql.Identifier('selfselfcare'),
+                sql.Identifier('selfhonesty'),
+                sql.Identifier('selffamily'),
+                sql.Identifier('profiles')
+    ) )
+    record = cur.fetchall()
+
+    print(model.coef_[0])
+    scores = dict()
+    res = []
+
+    for x in record:
+        score = 0
+        i = 0
+        #print(x)
+        for m in model.coef_[0]:
+            if i == 0 or None in x:
+                i += 1
+                continue
+            score += m * x[i]
+            i += 1
+        #print(score)
+        scores[x[0]] = score
+
+    for user,ps in pscores:
+        res.append((user,scores[user]))
+
+        if len(res) > 10:
+            break
+
+    if(conn):
+        cur.close()
+        conn.close()
+
+    return res
+
+def get_results(user):
+    res = []
+
+    conn = psycopg2.connect(user = config.user,
+                          password = config.password,
+                          host = config.hostname,
+                          port = config.port,
+                          database = config.database)
+    cur = conn.cursor()
+
+    cur.execute(sql.SQL("""select {},{},{},{},{},{}
+                        from {} where {} != %s""").format(
+                sql.Identifier('value1'),
+                sql.Identifier('value2'),
+                sql.Identifier('value3'),
+                sql.Identifier('value4'),
+                sql.Identifier('value5'),
+                sql.Identifier('username'),
+                sql.Identifier('profiles'),
+                sql.Identifier('username')),[user])
+    record = cur.fetchone()
+
+    s= get_score(pickle.load(open("NewFrontEnd/frontend/static/data/feat_model.sav", 'rb')),
+                user,get_pscore(user, record[:-1]))
+    if conn:
+        cur.close()
+        conn.close()
+
+    s.sort(reverse = True, key = lambda a: abs(a[1]))
+    return s
