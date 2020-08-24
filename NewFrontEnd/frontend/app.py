@@ -76,7 +76,7 @@ def index():
 
 # create route that renders select.html template
 @app.route("/select")
-def home():
+def select():
 
     return render_template("select.html")
 
@@ -511,8 +511,9 @@ def formsubmit():
     result = loaded_model.predict(model_input)
     print('results')
     print(result[0][0])
-    prettyresult=(230-result[0][0])/230*100
-    return render_template("outputrating.html", LoveRating = prettyresult)
+    prettyresult=(230-result[0][0])/230
+    prettierresult="{:.1%}".format(prettyresult)
+    return render_template("outputrating.html", LoveRating = prettierresult)
 
 
 @app.route("/survey")
@@ -561,7 +562,6 @@ def formsubmit1():
     surveydata.append(request.form.get("QP_EmotionalIntelligence"))
     surveydata.append(request.form.get("Q_Jealous"))
     surveydata.append(request.form.get("Q_PartnerJealous"))
-    # surveydata.append(request.form.get("Q_PartnerJealous- checklater"))
     surveydata.append(request.form.get("Q_Manipulative"))
     surveydata.append(request.form.get("QP_SexualChemistry"))
     surveydata.append(request.form.get("Q_AttractionLoss"))
@@ -608,7 +608,7 @@ def formsubmit1():
     #db.session.add(profiles)
     #db.session.commit()
     #db.session.close()
-    return render_template("survey.html")
+    return render_template("thanks.html")
 
 @app.route("/profile", methods=["GET", "POST"])
 def personality():
