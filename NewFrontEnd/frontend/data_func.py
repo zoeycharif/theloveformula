@@ -486,7 +486,7 @@ def insert_survey(data):
                 sql.Identifier("q_coulddobetter"),
                 sql.Identifier("q_notgoodenough"),
                 sql.Identifier("qp_longterm"),
-                sql.Identifier("qp_independent"),
+                sql.Identifier("qp_independet"),
                 sql.Identifier("q_coping"),
                 sql.Identifier("qp_selfcare"),
                 sql.Identifier("q_emotionallydrained"),
