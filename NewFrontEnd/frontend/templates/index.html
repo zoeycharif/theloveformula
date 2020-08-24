@@ -9,16 +9,44 @@
 <!-- It should come back here and then we should go to the first form for the user to fill out. -->
 <head>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    
+    <!-- UPDATE WITH CUSTOM BOOTSTRAP STYLESHEETs -->
+    <link rel="stylesheet" href="../static/bootstrap/bootstrap.css">
 </head>
-<body>
-    
-    <h1>Hello!</h1>
 
-    <p>Please enter your email. If it doesn't exist, a new record will be created. If you are returning, please use the same email as before. This is not case sensitive.</p>    
+<body>
+
+    <!-- ADDING NAV BAR -->
+<!--     <ul class="nav nav-tabs">
+    	<li class="nav-item">
+    		<a class="nav-link active" href="#">Active</a>
+    	</li>
+    	<li class="nav-item dropdown">
+    		<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+    		<div class="dropdown-menu">
+    			<a class="dropdown-item" href="rating.html">looking for love?</a>
+    			<a class="dropdown-item" href="profile.html">is your boo the one?</a>
+    			<a class="dropdown-item" href="survey.html">take our luv survey</a>
+    			<div class="dropdown-divider"></div>
+    			<a class="dropdown-item" href="#">Separated link</a>
+    		</div>
+    	</li>
+    </ul> -->
+
+    <main role="main">
+    	<!-- main jumbotron for primary headline -->
+    	<div class="jumbotron">
+    		<div class="container">
+    			<h1><i><b>searching 4 the one?</i></b></h1>
+    			<p>perhaps the <b>the love formula</b> can calculate your perfect match!</p>
+    		</div>
+    	</div>
+    	<div class="container">
+    		<div class="row">
+    			<div class="col-md-10">
+    				<p>Start here by entering your email. If it doesn't exist in our system, a new record will be created. Returning user? Head over heels with the results? Welcome back! Just use the same email as before. 
+    					<br><i>(This is not case sensitive)</i></p>    
     <form action="/" id="index" method="POST">
-        Your username: <input type="text" id="userID" name="userId" value=""><br>
+        <b>Your username:</b> <input type="text" id="userID" name="userId" value=""><br>
         <button class="btn btn-primary btn-lg" type="submit" value="Submit">Submit</button>
         
    </form>
