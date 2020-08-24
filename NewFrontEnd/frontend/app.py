@@ -24,18 +24,6 @@ app.secret_key = "hihi"
 #################################################
 
 
-#table names are #profiles #users
-
-# from flask_sqlalchemy import SQLAlchemy
-# app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'postgres://jyfiybgxgthlpk:803a3b11c71fa39768bb853656d3db2dcab91c1a40640b8314a7fbcc509ed242@ec2-3-215-207-12.compute-1.amazonaws.com:5432/d721k5b7avhgf8')
-
-# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
-# db = SQLAlchemy(app)
-
-# from .models import
-
-userId = ""
 URI = "postgres://rhjtenpwhdlbjl:4d3153a71d04ee752de8aab6fb6ac3baaff5fe615aa7a6223845aab661e0c6af@ec2-34-237-89-96.compute-1.amazonaws.com:5432/d1l8p7t7cs19l8"
 
 engine = create_engine(URI)
@@ -50,7 +38,8 @@ Base.prepare(engine, reflect = True)
 #print(Base.classes.keys())
 Profiles = Base.classes.profiles
 
-
+# userId is global.
+userId = ""
 
 @app.route("/", methods=["POST","GET"])
 def index():
@@ -696,26 +685,6 @@ def formsubmit2():
 
 
 
-
-
-# @app.route("/formsubmit1", methods= ["POST", "GET"])
-# def formsubmit1():
-#     session = Session(engine)
-#     agerange = request.form["AgeRange"]
-#     gender = request.form["Gender"]
-#     print(agerange)
-#     print(gender)
-#     session.close()
-
-#     return render_template("profile.html")
-
-
-
 if __name__ == "__main__":
     app.run(debug=True)
 
-
-
-# value1 = request.form["Value1"]
-# selfvalue1 = request.form["SelfValue1"]
-# partnervalue1 = request.form["PartnerValue1"]
