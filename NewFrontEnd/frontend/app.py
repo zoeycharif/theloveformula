@@ -38,11 +38,10 @@ Base.prepare(engine, reflect = True)
 #print(Base.classes.keys())
 Profiles = Base.classes.profiles
 
-# userId is global.
-userId = ""
 
 @app.route("/", methods=["POST","GET"])
 def index():
+    global userId
     print('index')
     if flask.request.method=="POST":
         session = Session(engine)
@@ -132,6 +131,8 @@ def formsubmit():
     lovedata.append(request.form["S4_ImBetterVsMatch"])
     lovedata.append(request.form["S4_StayIfImBetterVsStayIfPartnerBetter"])
     lovedata.append(userId)
+    print(userId)
+    print(len(lovedata))
     #print (lovedata)
     data_func.insertData(lovedata)
     session.close()
@@ -592,8 +593,10 @@ def formsubmit1():
     surveydata.append(request.form["S4_StayIfImBetterVsStayIfPartnerBetter"])
 
     #print(surveydata)
-    print(len(surveydata))
+    print(surveydata)
     surveydata.append(userId)
+    print(userId)
+    print(len(surveydata))
     data_func.insert_survey(surveydata)
     session.close()
     #db.session.add(profiles)
@@ -669,11 +672,12 @@ def formsubmit2():
     profiledata.append(request.form["S4_StayIfImBetterVsStayIfPartnerBetter"])
 
     #print(profiledata)
+    print(profiledata)
     profiledata.append(userId)
     print(len(profiledata))
     data_func.insert_profile(profiledata)
 
-    tm = get_results(userId)
+    tm = data_func.get_results(userId)
     print("topmatches: ")
     print(tm)
 

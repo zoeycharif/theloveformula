@@ -315,6 +315,7 @@ def insert_profile(data):
                 {} = %s,
                 {} = %s,
                 {} = %s,
+                {} = %s,
                 {} = %s
                 where {} = %s""")
         .format(sql.Identifier('profiles'),
@@ -698,7 +699,7 @@ def get_results(user):
                 sql.Identifier('username')),[user])
     record = cur.fetchone()
 
-    s= get_score(pickle.load(open("/static/data/feat_model.sav", 'rb')),
+    s= get_score(pickle.load(open("static/data/feat_model.sav", 'rb')),
                 user,get_pscore(user, record[:-1]))
     if conn:
         cur.close()
