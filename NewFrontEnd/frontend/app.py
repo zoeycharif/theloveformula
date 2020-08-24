@@ -51,17 +51,9 @@ Profiles = Base.classes.profiles
 
 
 
-
-
-# create route that renders index.html template
-@app.route("/")
-def home():
-
-    return render_template("index.html")
-
-@app.route("/newuser", methods=["POST","GET"])
+@app.route("/", methods=["POST","GET"])
 def newuser():
-    print('newuser')
+    print('index')
     if flask.request.method=="POST":
         session = Session(engine)
         userId = request.form['userId'].upper()
@@ -71,19 +63,18 @@ def newuser():
             newUser = Profiles(username=userId)
             session.add(newUser)
             session.commit()
-            return render_template("index.html")   #should go to survey page
+            return render_template("select.html")   #should go to survey page
         elif len(results)!=0:    
-                return render_template("index.html")   #should go to survey page.
+                return render_template("select.html")   #should go to survey page.
     else:
-        return render_template("newuser.html")    #should go to survey page.
-        
-    
+        return render_template("index.html")  
 
 
-@app.route("/returnuser")
-def returnuser():
-    print('returning user')
-    return render_template("returnuser.html")
+# create route that renders select.html template
+@app.route("/select")
+def home():
+
+    return render_template("select.html")
 
 
 @app.route("/ratings")
