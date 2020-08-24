@@ -92,6 +92,11 @@ def ratings():
 
     return render_template("rating.html")
 
+@app.route("/thanks")
+def thanks():
+    return render_template("thanks.html")
+    
+
 
 @app.route("/formsubmit", methods= ["POST", "GET"])
 def formsubmit():
