@@ -336,7 +336,7 @@ def insert_profile(data):
                 sql.Identifier("selfpurpose"),
                 sql.Identifier("selfstatus"),
                 sql.Identifier("selfcultured"),
-                sql.Identifier("selfcare"),
+                sql.Identifier("selfselfcare"),
                 sql.Identifier("selfhonesty"),
                 sql.Identifier("selffamily"),
                 sql.Identifier("value1"),
