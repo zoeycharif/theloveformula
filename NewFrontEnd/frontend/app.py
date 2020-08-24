@@ -661,7 +661,6 @@ def formsubmit2():
     profiledata.append(request.form["S1_CompatibilityVsChemistry"])
     profiledata.append(request.form["S2_ImprovementVsAcceptance"])
     profiledata.append(request.form["S2_ShortcomingsVSAcceptance"])
-    profiledata.append(request.form["S3_SocialAcceptanceVsDontCare"])
     profiledata.append(request.form["S2_PickyVsPositives"])
     profiledata.append(request.form["S3_SocialAcceptanceVsDontCare"])
     profiledata.append(request.form["S3_SimilarVsDifferent"])
