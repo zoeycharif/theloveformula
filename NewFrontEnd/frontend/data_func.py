@@ -201,9 +201,9 @@ def insertData(data):
                 sql.Identifier('s_decisionmakingprocess'),
                 sql.Identifier('qp_emotionalintelligence'),
                 sql.Identifier('q_jealous'),
-                sql.Identifier( 'q_partnerjealous'),
+                sql.Identifier('q_partnerjealous'),
                 sql.Identifier('q_manipulative'),
-                sql.Identifier( 'qp_sexualchemistry'),
+                sql.Identifier('qp_sexualchemistry'),
                 sql.Identifier('q_attractionloss'),
                 sql.Identifier('q_suffocated'),
                 sql.Identifier('q_attention'),
@@ -302,40 +302,67 @@ def insert_profile(data):
                 {} = %s,
                 {} = %s,
                 {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
+                {} = %s,
                 {} = %s
                 where {} = %s""")
         .format(sql.Identifier('profiles'),
                 sql.Identifier('agerange'),
                 sql.Identifier('gender'),
                 sql.Identifier('orientation'),
-                sql.Identifier('currentstatus'),
-                sql.Identifier('togethertime'),
-                sql.Identifier('relationshipdescription'),
-                sql.Identifier('value1'),
-                sql.Identifier('selfvalue1'),
-                sql.Identifier('partnervalue1'),
-                sql.Identifier('value2'),
-                sql.Identifier('selfvalue2'),
-                sql.Identifier('partnervalue2'),
-                sql.Identifier('value3'),
-                sql.Identifier('selfvalue3'),
-                sql.Identifier('partnervalue3'),
-                sql.Identifier('value4'),
-                sql.Identifier('selfvalue4'),
-                sql.Identifier('partnervalue4'),
-                sql.Identifier('value5'),
-                sql.Identifier('selfvalue5'),
-                sql.Identifier('partnervalue5'),
-                sql.Identifier('type1'),
-                sql.Identifier('partnertype1'),
-                sql.Identifier('type2'),
-                sql.Identifier('partnertype2'),
-                sql.Identifier('type3'),
-                sql.Identifier('partnertype3'),
-                sql.Identifier('type4'),
-                sql.Identifier('partnertype4'),
-                sql.Identifier('type5'),
-                sql.Identifier('partnertype5'),
+                sql.Identifier("selfeducation")
+                sql.Identifier("selffinancial")
+                sql.Identifier("selfconfidence")
+                sql.Identifier("selfreligious")
+                sql.Identifier("selfmaterialism")
+                sql.Identifier("selfimage")
+                sql.Identifier("selfoccupation")
+                sql.Identifier("selfworkethic")
+                sql.Identifier("selfhousehold")
+                sql.Identifier("selfcommunication")
+                sql.Identifier("selfartsy")
+                sql.Identifier("selfcharitable")
+                sql.Identifier("selfpurpose")
+                sql.Identifier("selfstatus")
+                sql.Identifier("selfcultured")
+                sql.Identifier("selfcare")
+                sql.Identifier("selfhonesty")
+                sql.Identifier("selffamily")
+                sql.Identifier("value1")
+                sql.Identifier("value2")
+                sql.Identifier("value3")
+                sql.Identifier("value4")
+                sql.Identifier("value5")
+                sql.Identifier("selfappearance")
+                sql.Identifier("selfsocial")
+                sql.Identifier("selfshy")
+                sql.Identifier("selfalpha")
+                sql.Identifier("selfhumorous")
+                sql.Identifier("selfspontaneous")
+                sql.Identifier("selfgenerous")
+                sql.Identifier("selfdriven")
+                sql.Identifier("selfintuitive")
+                sql.Identifier("selfsexual")
+                sql.Identifier("selfopenminded")
+                sql.Identifier("selfvibe")
+                sql.Identifier("selfovergiving")
+                sql.Identifier("selfdominant")
+                sql.Identifier("type1")
+                sql.Identifier("type2")
+                sql.Identifier("type3")
+                sql.Identifier("type4")
+                sql.Identifier("type5")
                 sql.Identifier('s1_logicvsfeelings'),
                 sql.Identifier('s1_quitsvsstays'),
                 sql.Identifier('s1_practicalvsemotional'),
