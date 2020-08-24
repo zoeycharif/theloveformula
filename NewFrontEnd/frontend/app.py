@@ -8,6 +8,7 @@ import config
 import data_func
 
 from flask import Flask, render_template, jsonify, redirect, request, url_for, session, flash
+import flask
 from datetime import timedelta
 import pickle
 #################################################
@@ -33,7 +34,7 @@ app.secret_key = "hihi"
 
 # from .models import
 
-
+userId = ""
 URI = "postgres://rhjtenpwhdlbjl:4d3153a71d04ee752de8aab6fb6ac3baaff5fe615aa7a6223845aab661e0c6af@ec2-34-237-89-96.compute-1.amazonaws.com:5432/d1l8p7t7cs19l8"
 
 engine = create_engine(URI)
@@ -50,30 +51,39 @@ Profiles = Base.classes.profiles
 
 
 
+@app.route("/", methods=["POST","GET"])
+def index():
+    print('index')
+    if flask.request.method=="POST":
+        session = Session(engine)
+        userId = request.form['userId'].upper()
+        results = session.query(Profiles).filter_by(username=userId).all()
+        print(len(results))
+        if len(results)==0:
+            newUser = Profiles(username=userId)
+            session.add(newUser)
+            session.commit()
+            print('New user created')
+            return render_template("select.html")   #should go to survey page
+        elif len(results)!=0:
+                print('existing user')    
+                return render_template("select.html")   #should go to survey page.
+    else:
+        return render_template("index.html")  
 
 
-# create route that renders index.html template
-@app.route("/")
+# create route that renders select.html template
+@app.route("/select")
 def home():
 
-    return render_template("index.html")
-
-@app.route("/newuser")
-def newuser():
-
-    return render_template("newuser.html")
-
-@app.route("/returnuser")
-def returnuser():
-
-    return render_template("returnuser.html")
+    return render_template("select.html")
 
 
 @app.route("/ratings")
 def ratings():
 
     return render_template("rating.html")
-
+ 
 
 @app.route("/formsubmit", methods= ["POST", "GET"])
 def formsubmit():
@@ -81,6 +91,7 @@ def formsubmit():
     results = session.query(Profiles.qp_communication).all()
     # print(results)
     lovedata = []
+    #lovedata.append(request.form["Username"])
     lovedata.append(request.form["Value1"])
     lovedata.append(request.form["SelfValue1"])
     lovedata.append(request.form["PartnerValue1"])
@@ -118,6 +129,7 @@ def formsubmit():
     lovedata.append(request.form["S4_LowStandardsVsHighStandards"])
     lovedata.append(request.form["S4_ImBetterVsMatch"])
     lovedata.append(request.form["S4_StayIfImBetterVsStayIfPartnerBetter"])
+    lovedata.append(userId)
     print (lovedata)
     insertData(lovedata)
     session.close()
