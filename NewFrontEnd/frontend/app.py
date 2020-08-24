@@ -43,11 +43,11 @@ engine = create_engine(URI)
 session = Session(engine)
 inspector = inspect(engine)
 columns = inspector.get_columns("profiles")
-for c in columns:
-    print(c["name"])
+#for c in columns:
+#    print(c["name"])
 Base = automap_base()
 Base.prepare(engine, reflect = True)
-print(Base.classes.keys())
+#print(Base.classes.keys())
 Profiles = Base.classes.profiles
 
 
@@ -97,7 +97,7 @@ def ratings():
 def formsubmit():
     session = Session(engine)
     results = session.query(Profiles.qp_communication).all()
-    # print(results)
+    print(results)
     lovedata = []
     #lovedata.append(request.form["Username"])
     lovedata.append(request.form["Value1"])
@@ -138,7 +138,7 @@ def formsubmit():
     lovedata.append(request.form["S4_ImBetterVsMatch"])
     lovedata.append(request.form["S4_StayIfImBetterVsStayIfPartnerBetter"])
     lovedata.append(userId)
-    print (lovedata)
+    #print (lovedata)
     data_func.insertData(lovedata)
     session.close()
     #db.session.add(profiles)
@@ -499,13 +499,14 @@ def formsubmit():
     #pickle will load the model template and run it on mldata saved in the static file.
     print('pickle!')
     loaded_model = pickle.load(open("static/data/finalized_model.sav", 'rb'))
-    model_input = pd.DataFrame(data = [loaded_model])
+    model_input = pd.DataFrame([mldata])
+    print('model input')
     print(model_input)
 
     result = loaded_model.predict(model_input)
-    
+    print('results')
     print(result[0][0])
-    return render_template("rating.html", LoveRating = result[0][0])
+    return render_template("outputrating.html", LoveRating = result[0][0])
 
 
 @app.route("/survey")
