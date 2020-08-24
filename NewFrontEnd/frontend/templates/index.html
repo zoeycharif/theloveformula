@@ -1,0 +1,27 @@
+<!-- This is the new user page -->
+<!DOCTYPE html>
+<html>
+<title>New User</title>
+<!-- Since this is a new user, we need to make a call to the database to find the last username is. -->
+<!-- So a script should get called here. -->
+
+<!-- The script should create the new username, and create a record with nothing but null values. -->
+<!-- It should come back here and then we should go to the first form for the user to fill out. -->
+<head>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    
+</head>
+<body>
+    
+    <h1>Hello!</h1>
+
+    <p>Please enter your email. If it doesn't exist, a new record will be created. If you are returning, please use the same email as before. This is not case sensitive.</p>    
+    <form action="/" id="index" method="POST">
+        Your username: <input type="text" id="userID" name="userId" value=""><br>
+        <button class="btn btn-primary btn-lg" type="submit" value="Submit">Submit</button>
+        
+   </form>
+</body>
+
+</html>
