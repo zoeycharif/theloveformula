@@ -3,7 +3,10 @@ import sqlalchemy
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func, inspect
-from data_func import bootstrap, create_model
+
+import config
+import data_func
+
 from flask import Flask, render_template, jsonify, redirect, request, url_for, session, flash
 from datetime import timedelta
 import pickle
@@ -22,13 +25,13 @@ app.secret_key = "hihi"
 #table names are #profiles #users
 
 # from flask_sqlalchemy import SQLAlchemy
-# app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'postgres://jyfiybgxgthlpk:803a3b11c71fa39768bb853656d3db2dcab91c1a40640b8314a7fbcc509ed242@ec2-3-215-207-12.compute-1.amazonaws.com:5432/d721k5b7avhgf8') 
+# app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'postgres://jyfiybgxgthlpk:803a3b11c71fa39768bb853656d3db2dcab91c1a40640b8314a7fbcc509ed242@ec2-3-215-207-12.compute-1.amazonaws.com:5432/d721k5b7avhgf8')
 
 # app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # db = SQLAlchemy(app)
 
-# from .models import 
+# from .models import
 
 
 URI = "postgres://rhjtenpwhdlbjl:4d3153a71d04ee752de8aab6fb6ac3baaff5fe615aa7a6223845aab661e0c6af@ec2-34-237-89-96.compute-1.amazonaws.com:5432/d1l8p7t7cs19l8"
@@ -64,7 +67,7 @@ def newuser():
 def returnuser():
 
     return render_template("returnuser.html")
-    
+
 
 @app.route("/ratings")
 def ratings():
@@ -116,6 +119,7 @@ def formsubmit():
     lovedata.append(request.form["S4_ImBetterVsMatch"])
     lovedata.append(request.form["S4_StayIfImBetterVsStayIfPartnerBetter"])
     print (lovedata)
+    insertData(lovedata)
     session.close()
     #db.session.add(profiles)
     #db.session.commit()
@@ -640,7 +644,7 @@ def formsubmit2():
     profiledata.append(request.form["S4_LowStandardsVsHighStandards"])
     profiledata.append(request.form["S4_ImBetterVsMatch"])
     profiledata.append(request.form["S4_StayIfImBetterVsStayIfPartnerBetter"])
-          
+
     print(profiledata)
     session.close()
     #db.session.add(profiles)
@@ -661,7 +665,7 @@ def formsubmit2():
 #     session.close()
 
 #     return render_template("profile.html")
-    
+
 
 
 if __name__ == "__main__":
@@ -672,4 +676,3 @@ if __name__ == "__main__":
 # value1 = request.form["Value1"]
 # selfvalue1 = request.form["SelfValue1"]
 # partnervalue1 = request.form["PartnerValue1"]
-  
