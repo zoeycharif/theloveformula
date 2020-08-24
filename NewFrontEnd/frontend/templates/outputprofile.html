@@ -13,7 +13,9 @@
   <body>
     <h1>Here's a list of your top matches:</h1>
 
-    <h2>{{topmatches}}</h2>
+    <h2>{%for i in range(0, 10)%} 
+      <li>{{topmatches[i]}}</li> 
+    {%endfor%}</h2>
 
     <br><br>
     <a href ="{{url_for('select')}}" type="button" class="btn btn-primary btn-lg">Back To Selections</button></a></br>
