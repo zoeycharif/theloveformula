@@ -26,7 +26,7 @@ app.secret_key = "hihi"
 
 URI = "postgres://rhjtenpwhdlbjl:4d3153a71d04ee752de8aab6fb6ac3baaff5fe615aa7a6223845aab661e0c6af@ec2-34-237-89-96.compute-1.amazonaws.com:5432/d1l8p7t7cs19l8"
 
-engine = create_engine(URI)
+engine = create_engine(URI, connect_args={'connect_timeout': 30}) #added 30 sec connection timeout.
 
 session = Session(engine)
 inspector = inspect(engine)
@@ -59,6 +59,7 @@ def index():
             return render_template("select.html")   #should go to survey page
         elif len(results)!=0:
                 print('existing user')
+                session.close()
                 return render_template("select.html")   #should go to survey page.
     else:
         return render_template("index.html")
@@ -84,6 +85,7 @@ def ratings():
 
 @app.route("/thanks")
 def thanks():
+    session.close()
     return render_template("thanks.html")
 
 

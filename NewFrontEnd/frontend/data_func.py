@@ -98,7 +98,8 @@ def insertData(data):
                               password = config.password,
                               host = config.hostname,
                               port = config.port,
-                              database = config.database)
+                              database = config.database,
+                              connect_timeout=30)
 
     cur = conn.cursor()
     cur.execute(
