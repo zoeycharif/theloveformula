@@ -194,7 +194,8 @@ def insert_profile(data):
                               password = config.password,
                               host = config.hostname,
                               port = config.port,
-                              database = config.database)
+                              database = config.database,
+                              connect_timeout=30)
 
     cur = conn.cursor()
     cur.execute(
@@ -329,7 +330,8 @@ def insert_survey(data):
                               password = config.password,
                               host = config.hostname,
                               port = config.port,
-                              database = config.database)
+                              database = config.database,
+                              connect_timeout=30)
 
     cur = conn.cursor()
     cur.execute(
@@ -499,7 +501,8 @@ def get_pscore(user,features):
                       password = config.password,
                       host = config.hostname,
                       port = config.port,
-                      database = config.database)
+                      database = config.database,
+                      connect_timeout=30)
 
     cur = conn.cursor()
 
@@ -556,7 +559,8 @@ def get_score(model, userdata, pscores):
                           password = config.password,
                           host = config.hostname,
                           port = config.port,
-                          database = config.database)
+                          database = config.database,
+                          connect_timeout=30)
 
     cur = conn.cursor()
 
@@ -626,7 +630,8 @@ def get_results(user):
                           password = config.password,
                           host = config.hostname,
                           port = config.port,
-                          database = config.database)
+                          database = config.database,
+                          connect_timeout=30)
     cur = conn.cursor()
 
     cur.execute(sql.SQL("""select {},{},{},{},{},{}
