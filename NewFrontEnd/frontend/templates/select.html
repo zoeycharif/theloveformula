@@ -14,56 +14,57 @@
     <title>The Love Formula</title>
 </head>
 
-<body>
+<body style="background-color: #FFF4ED;">
     <main role="main">
-      <!-- main jumbotron for primary tagline -->
-      <div class="jumbotron">
-        <div class="container">
-          <h1 class="display-4">looking for love?</h1>
-          <p>Our fortune teller (algorithm) can help you find the one!</p>
+
+        <!-- main jumbotron for primary headline -->
+
+        <div class="jumbotron" style="background-image: 
+        linear-gradient(
+            to bottom,
+            #FFECDF 2.5%,
+            #FFA59A 5%, 
+            #FFA59A 7.5%,
+            #E9645B 10%,
+            #E9645B 12.5%,
+            #B9250E 15%,
+            #B9250E 17.5%,
+            #E84029 20%,
+            #FFECDF 92%,
+            #FFF4ED
+            );">
+                <h1 style="text-align:center;" class="text-white"><i><b>the love formula</b></i></h1>
+                <p style="text-align:center;" class="text-white">calculate your perfect match!</p>
         </div>
-      </div>
 
       <div class="container">
         <!-- let's try an example row of columns-->
         <div class="row">
-          <div class="col-md-4">
+
+          <div class="col-md-4" style="text-align:center;">
             <h2>Ready to find love?</h2>
             <p> Let's find your next boo!</p>
+            <br>
             <a href="{{url_for('profile')}}" type="button" class="btn btn-primary btn-lg">I'm lonely :(</button></a>
             <br>
         </div>
-    <!-- button type="button" id="profile" class="btn btn-primary btn-lg"><a href="profile.html">I am looking for a relationship</a></button><br /> -->
-    <br>
-    <br>
-    <div class="col-md-4">
-        <h2>Already taken?</h2>
-        <p>Cute! But will it last?</p>
-        <br>
-        <a href ="{{url_for('ratings')}}" type="button" class="btn btn-primary btn-lg">Are we a good match?</button></a></br>
-        <!-- <button type="button" class="btn btn-primary btn-lg"><a href="rating.html">Are we a good match?</a></button> -->
+        <!-- button type="button" id="profile" class="btn btn-primary btn-lg"><a href="profile.html">I am looking for a relationship</a></button><br /> -->
+        <div class="col-md-4" style="text-align:center;">
+            <h2>Already taken?</h2>
+            <p>Cute! But will it last?</p>
+            <br>
+            <a href ="{{url_for('ratings')}}" type="button" class="btn btn-primary btn-lg">Are we a good match?</button></a></br>
+            <!-- <button type="button" class="btn btn-primary btn-lg"><a href="rating.html">Are we a good match?</a></button> -->
+        </div>
+        <div class="col-md-4" style="text-align:center;">
+            <h2>Returning user?</h2>
+            <p>Can we really see the future? Let us know!</p>
+            <br>
+            <a href ="{{url_for('survey')}}" type="button" class="btn btn-primary btn-lg">Survey</button></a></br>
+        </div>
     </div>
-    <br>
-    <br>
-    <div class="col-md-4">
-        <h2>Returning user?</h2>
-        <p>Can we really see the future? Let us know!</p>
-    <a href ="{{url_for('survey')}}" type="button" class="btn btn-primary btn-lg">Survey</button></a></br>
-</div>
 </div>
     <!-- <button type="button" class="btn btn-primary btn-lg"><a href="survey.html">Survey</a></button> -->
-    <br>
-    <br>
-    <div class="row"><br></div>
-    <div class="row"><br></div>
-    <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-4">
-    <a href ="{{url_for('thanks')}}" type="button" class="btn btn-secondary btn-lg btn-block">Done!</button></a></br>
-</div>
-<div class="col-md-4"></div>
-</div>
-</div>
 
     </main>
 
