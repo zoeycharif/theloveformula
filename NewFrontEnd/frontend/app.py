@@ -41,6 +41,7 @@ Profiles = Base.classes.profiles
 global userId
 userId=""
 
+#index.html
 @app.route("/", methods=["POST","GET"])
 def index():
     global userId
