@@ -1,42 +1,75 @@
 <!-- This is the new user page -->
-<!DOCTYPE html>
+<!doctype html>
 <html>
 <title>New User</title>
 <!-- Since this is a new user, we need to make a call to the database to find the last username is. -->
 <!-- So a script should get called here. -->
-
 <!-- The script should create the new username, and create a record with nothing but null values. -->
 <!-- It should come back here and then we should go to the first form for the user to fill out. -->
-<head>
-    <!-- Bootstrap CSS -->
-    <!-- UPDATE WITH CUSTOM BOOTSTRAP STYLESHEETs -->
-    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
 
-    <link rel="stylesheet" href="../static/css/bootstrap.css">
+<!-- <div class="wrapper"> -->
+    <head>
 
-</head>
-
-<body>
+        <!-- Bootstrap CSS -->
+        <!-- UPDATE WITH CUSTOM BOOTSTRAP STYLESHEETs -->
+        <!-- <link rel="stylesheet" href="../static/css/bootstrap.min.css"> -->
+        <link rel="stylesheet" href="../static/css/bootstrap.css">
+        <link rel="stylesheet" href="../static/css/custom.css">
+        
+    </head>
+    
+<body style="background-color: #FFF4ED;">
 
     <main role="main">
+
         <!-- main jumbotron for primary headline -->
-        <div class="jumbotron">
-            <div class="container">
-                <h1><i><b>searching 4 the one?</i></b></h1>
-                <p>perhaps the <b>the love formula</b> can calculate your perfect match!</p>
-            </div>
+
+        <div class="jumbotron" style="background-image: 
+        linear-gradient(
+            to bottom,
+            #FFECDF 2.5%,
+            #FFA59A 5%, 
+            #FFA59A 7.5%,
+            #E9645B 10%,
+            #E9645B 12.5%,
+            #B9250E 15%,
+            #B9250E 17.5%,
+            #E84029 20%,
+            #FFECDF 92%,
+            #FFF4ED
+            );">
+                <h1 style="text-align:center;" class="text-white"><i><b>searching for the one?</b></i></h1>
+                <p style="text-align:center;" class="text-white">perhaps the <b>the love formula</b> can calculate your perfect match!</p>
         </div>
+
+    </main>
+
+        <!-- within body, add line for background class -->
+        <!-- in CSS you will update the bg color for bg-primary -->
+
+        <!-- <div style="width: ###px; height: ###px;" class="bg-primary m-1 rounded"> -->
+
+
         <div class="container">
             <div class="row">
-                <div class="col-md-10">
-                    <p>Start here by entering a username. If it doesn't exist in our system, a new record will be created. <br>Returning user? Head over heels with the results?</p>
-                    <p>Welcome back! Just use the same as before.
-                        <br><i>(This is not case sensitive)</i></p>    
-    <form action="/" id="index" method="POST">
-        <b>Your username:</b> <input type="text" id="userID" name="userId" value=""><br>
-        <button class="btn btn-primary btn-lg" type="submit" value="Submit">Submit</button>
-        
-   </form>
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                        <p style="text-align:center;">Start here by entering a username.
+                    <br>
+                        If it doesn't exist in our system,a new record will be created.</p>
+                        <form style="text-align:center;" action="/" id="index" method="POST">
+                            <b>Your username:</b> <input type="text" id="userID" name="userId" value="">
+                            <br>
+                            <br>
+                            <button class="btn btn-primary btn-lg" type="submit" value="Submit">Submit</button>
+                        </form>
+                        <p style="text-align:center;"><br>Returning user? Welcome back!<br>Please use the same login as before.
+                    <br>
+                        <small><i>(username is not case sensitive)</i></small></p>
+                </div>
+            </div>
+        </div>
+<!-- <div class="col-md-2"></div> -->
 </body>
-
+<!-- </div> -->
 </html>
